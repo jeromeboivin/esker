@@ -1,0 +1,369 @@
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2017-11-21 10:01:13" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="Passwords__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="PHQGE40164" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomTable" upgradable="0" userid="" version="153" visibility="1">
+	<properties>
+		<gdr />
+		<lg>
+			<!--*.xml-->
+		</lg>
+		<process>
+			<flowtype>processing</flowtype>
+			<homepagelabel>Passwords</homepagelabel>
+			<instanciable>1</instanciable>
+			<enablerounddecimal>true</enablerounddecimal>
+			<OverrideAllowedAttachmentExtensions>*</OverrideAllowedAttachmentExtensions>
+			<UseActionNameWithScriptApproval>true</UseActionNameWithScriptApproval>
+			<AllowUploadAttachment>0</AllowUploadAttachment>
+			<AllowUploadReferenceDocument>0</AllowUploadReferenceDocument>
+			<UseCultureFormat>true</UseCultureFormat>
+			<TransportName>CustomTable</TransportName>
+			<LayoutVersion>1.0</LayoutVersion>
+		</process>
+		<ui>
+			<CustomScriptDebug>false</CustomScriptDebug>
+			<CustomScriptReadonly>false</CustomScriptReadonly>
+			<CustomScript>
+				<!--customscript.js--></CustomScript>
+			<layout>
+				<!--layout.json--></layout>
+		</ui>
+	</properties>
+	<type id="NoID" name="CT" />
+	<field deleted="0" format="" guid="PHQGE3E223" id="NoID" label="_Encryption key" length="100" name="Encryption_key__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Encryption_key__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Encryption key</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="VSCXE4016C" id="NoID" label="_Expiration" length="0" name="Expiration__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="DATE">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Expiration__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Expiration</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Date</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="YSKZE37864" id="NoID" label="_IV" length="50" name="IV__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/IV__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_IV</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="DUXWE4016F" id="NoID" label="_a-z" length="0" name="Lowercase_Required__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="BOOL">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Lowercase_Required__</fullname>
+				<defaultvalue>true</defaultvalue>
+			</db>
+			<extrainfo>
+				<Label>_a-z</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Boolean</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="GGBWE4016D" id="NoID" label="_Notes" length="32766" name="Notes__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Notes__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Notes</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="FNFOE40170" id="NoID" label="_0-9" length="0" name="Numbers_Required__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="BOOL">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Numbers_Required__</fullname>
+				<defaultvalue>true</defaultvalue>
+			</db>
+			<extrainfo>
+				<Label>_0-9</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Boolean</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="AYLNE40169" id="NoID" label="_Password" length="200" name="Password__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Password__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Password</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<field>
+				<required>false</required>
+			</field>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="TKJPE40172" id="NoID" label="_Length" length="0" name="Required_Length__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="INT">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Required_Length__</fullname>
+				<defaultvalue>12</defaultvalue>
+			</db>
+			<extrainfo>
+				<Label>_Length</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Number</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="ZVSRE40171" id="NoID" label="_/*_..." length="0" name="Special_Chars_Required__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="BOOL">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Special_Chars_Required__</fullname>
+				<defaultvalue>false</defaultvalue>
+			</db>
+			<extrainfo>
+				<Label>_/*_...</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Boolean</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="PHQGE40167" id="NoID" label="_Title" length="100" name="Title__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Title__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Title</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<field>
+				<required>true</required>
+			</field>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="KFNQE4016E" id="NoID" label="_A-Z" length="0" name="Uppercase_Required__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="BOOL">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Uppercase_Required__</fullname>
+				<defaultvalue>true</defaultvalue>
+			</db>
+			<extrainfo>
+				<Label>_A-Z</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>Boolean</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="FIRCE4016B" id="NoID" label="_Url" length="1024" name="Url__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Url__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_Url</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="HUMEE40168" id="NoID" label="_User name" length="100" name="User_name__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/User_name__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_User name</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+</process>

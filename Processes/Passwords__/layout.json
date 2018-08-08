@@ -1,0 +1,1041 @@
+{
+  "*": {
+    "Screen": {
+      "type": "FlexibleFormLayout",
+      "options": {
+        "splitterType": "simple-v",
+        "version": 0
+      },
+      "*": {
+        "form-header": {
+          "type": "FlexibleFormHeader",
+          "options": {
+            "hidePanelsMenu": false,
+            "version": 0
+          },
+          "stamp": 2,
+          "data": []
+        },
+        "form-center": {
+          "type": "FlexibleFormCenter",
+          "options": {
+            "version": 0
+          },
+          "*": {
+            "form-content": {
+              "type": "FlexibleFormContent",
+              "options": {
+                "version": 0
+              },
+              "*": {
+                "form-content-center": {
+                  "type": "FlexibleFormSplitter",
+                  "options": {
+                    "version": 1,
+                    "box": {
+                      "top": "0%",
+                      "left": "0%",
+                      "width": "100%"
+                    },
+                    "hidden": false
+                  },
+                  "*": {
+                    "form-content-center-1": {
+                      "type": "FlexibleFormLine",
+                      "data": [],
+                      "options": {
+                        "version": 0
+                      },
+                      "stamp": 9,
+                      "*": {
+                        "PasswordPanel": {
+                          "type": "PanelData",
+                          "options": {
+                            "border": {},
+                            "version": 0,
+                            "labelLength": 0,
+                            "iconURL": "",
+                            "TitleFontSize": "S",
+                            "hideActionButtons": false,
+                            "hideTitleBar": false,
+                            "hideTitle": false,
+                            "backgroundcolor": "default",
+                            "labelsAlignment": "right",
+                            "label": "_Password entry",
+                            "leftImageURL": "",
+                            "removeMargins": false
+                          },
+                          "*": {
+                            "FieldsManager": {
+                              "type": "FieldsManager",
+                              "options": {
+                                "controlsAssociation": {
+                                  "Title__": "LabelTitle__",
+                                  "LabelTitle__": "Title__",
+                                  "User_name__": "LabelUser_name__",
+                                  "LabelUser_name__": "User_name__",
+                                  "Password__": "LabelPassword__",
+                                  "LabelPassword__": "Password__",
+                                  "Url__": "LabelUrl__",
+                                  "LabelUrl__": "Url__",
+                                  "Expiration__": "LabelExpiration__",
+                                  "LabelExpiration__": "Expiration__",
+                                  "Notes__": "LabelNotes__",
+                                  "LabelNotes__": "Notes__",
+                                  "Enter_Password_Button__": "LabelEnter_Password_Button__",
+                                  "LabelEnter_Password_Button__": "Enter_Password_Button__",
+                                  "LabelDecrypt_Button__": "Decrypt_Button__",
+                                  "Decrypt_Button__": "LabelDecrypt_Button__",
+                                  "LabelEncryption_key__": "Encryption_key__",
+                                  "Encryption_key__": "LabelEncryption_key__",
+                                  "LabelIV__": "IV__",
+                                  "IV__": "LabelIV__",
+                                  "ClearPassword__": "LabelClearPassword__",
+                                  "LabelClearPassword__": "ClearPassword__"
+                                },
+                                "version": 0
+                              },
+                              "*": {
+                                "Grid": {
+                                  "type": "GridLayout",
+                                  "options": {
+                                    "lines": 15,
+                                    "columns": 2,
+                                    "version": 0,
+                                    "ctrlsPos": {
+                                      "Title__": {
+                                        "line": 2,
+                                        "column": 2
+                                      },
+                                      "LabelTitle__": {
+                                        "line": 2,
+                                        "column": 1
+                                      },
+                                      "User_name__": {
+                                        "line": 3,
+                                        "column": 2
+                                      },
+                                      "LabelUser_name__": {
+                                        "line": 3,
+                                        "column": 1
+                                      },
+                                      "Password__": {
+                                        "line": 10,
+                                        "column": 2
+                                      },
+                                      "LabelPassword__": {
+                                        "line": 10,
+                                        "column": 1
+                                      },
+                                      "Url__": {
+                                        "line": 5,
+                                        "column": 2
+                                      },
+                                      "LabelUrl__": {
+                                        "line": 5,
+                                        "column": 1
+                                      },
+                                      "Expiration__": {
+                                        "line": 6,
+                                        "column": 2
+                                      },
+                                      "LabelExpiration__": {
+                                        "line": 6,
+                                        "column": 1
+                                      },
+                                      "Notes__": {
+                                        "line": 8,
+                                        "column": 2
+                                      },
+                                      "LabelNotes__": {
+                                        "line": 8,
+                                        "column": 1
+                                      },
+                                      "Enter_Password_Button__": {
+                                        "line": 12,
+                                        "column": 2
+                                      },
+                                      "LabelEnter_Password_Button__": {
+                                        "line": 12,
+                                        "column": 1
+                                      },
+                                      "LabelDecrypt_Button__": {
+                                        "line": 15,
+                                        "column": 1
+                                      },
+                                      "Decrypt_Button__": {
+                                        "line": 15,
+                                        "column": 2
+                                      },
+                                      "Spacer_line__": {
+                                        "line": 1,
+                                        "column": 1
+                                      },
+                                      "Spacer_line2__": {
+                                        "line": 4,
+                                        "column": 1
+                                      },
+                                      "LabelEncryption_key__": {
+                                        "line": 13,
+                                        "column": 1
+                                      },
+                                      "Encryption_key__": {
+                                        "line": 13,
+                                        "column": 2
+                                      },
+                                      "LabelIV__": {
+                                        "line": 14,
+                                        "column": 1
+                                      },
+                                      "IV__": {
+                                        "line": 14,
+                                        "column": 2
+                                      },
+                                      "Spacer_line3__": {
+                                        "line": 7,
+                                        "column": 1
+                                      },
+                                      "Spacer_line4__": {
+                                        "line": 9,
+                                        "column": 1
+                                      },
+                                      "ClearPassword__": {
+                                        "line": 11,
+                                        "column": 2
+                                      },
+                                      "LabelClearPassword__": {
+                                        "line": 11,
+                                        "column": 1
+                                      }
+                                    },
+                                    "colspans": [
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
+                                      [],
+                                      [],
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
+                                      [],
+                                      [],
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
+                                      [],
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
+                                      [],
+                                      [],
+                                      [],
+                                      [],
+                                      [],
+                                      []
+                                    ]
+                                  },
+                                  "data": [
+                                    "fields"
+                                  ],
+                                  "*": {
+                                    "IV__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "IV__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_IV",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "version": 0
+                                      },
+                                      "stamp": 55
+                                    },
+                                    "LabelIV__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "IV__"
+                                      ],
+                                      "options": {
+                                        "label": "_IV",
+                                        "version": 0
+                                      },
+                                      "stamp": 54
+                                    },
+                                    "Encryption_key__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "Encryption_key__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Encryption key",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "length": 100,
+                                        "browsable": false,
+                                        "version": 0
+                                      },
+                                      "stamp": 53
+                                    },
+                                    "LabelEncryption_key__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Encryption_key__"
+                                      ],
+                                      "options": {
+                                        "label": "_Encryption key",
+                                        "version": 0
+                                      },
+                                      "stamp": 52
+                                    },
+                                    "Spacer_line__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line",
+                                        "version": 0
+                                      },
+                                      "stamp": 103
+                                    },
+                                    "LabelTitle__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Title__"
+                                      ],
+                                      "options": {
+                                        "label": "_Title",
+                                        "version": 0
+                                      },
+                                      "stamp": 14
+                                    },
+                                    "Title__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "Title__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Title",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "length": 100,
+                                        "version": 0
+                                      },
+                                      "stamp": 15
+                                    },
+                                    "LabelUser_name__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "User_name__"
+                                      ],
+                                      "options": {
+                                        "label": "_User name",
+                                        "version": 0
+                                      },
+                                      "stamp": 16
+                                    },
+                                    "User_name__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "User_name__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_User name",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "length": 100,
+                                        "version": 0
+                                      },
+                                      "stamp": 17
+                                    },
+                                    "Spacer_line2__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line2",
+                                        "version": 0
+                                      },
+                                      "stamp": 104
+                                    },
+                                    "Spacer_line3__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line3",
+                                        "version": 0
+                                      },
+                                      "stamp": 108
+                                    },
+                                    "LabelUrl__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Url__"
+                                      ],
+                                      "options": {
+                                        "label": "_Url",
+                                        "version": 0
+                                      },
+                                      "stamp": 22
+                                    },
+                                    "Url__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "Url__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Url",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "length": 1024,
+                                        "version": 0
+                                      },
+                                      "stamp": 23
+                                    },
+                                    "Spacer_line4__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line4",
+                                        "version": 0
+                                      },
+                                      "stamp": 109
+                                    },
+                                    "LabelPassword__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Password__"
+                                      ],
+                                      "options": {
+                                        "label": "_Password",
+                                        "version": 0
+                                      },
+                                      "stamp": 18
+                                    },
+                                    "Password__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "Password__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Password",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "length": 200,
+                                        "version": 0,
+                                        "readonly": true
+                                      },
+                                      "stamp": 19
+                                    },
+                                    "LabelClearPassword__": {
+                                      "type": "Label",
+                                      "data": [],
+                                      "options": {
+                                        "label": "_ClearPassword",
+                                        "version": 0
+                                      },
+                                      "stamp": 114
+                                    },
+                                    "ClearPassword__": {
+                                      "type": "ShortText",
+                                      "data": [],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "version": 1,
+                                        "label": "_ClearPassword",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "readonly": true,
+                                        "notInDB": true,
+                                        "dataType": "String"
+                                      },
+                                      "stamp": 115
+                                    },
+                                    "LabelEnter_Password_Button__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 101
+                                    },
+                                    "Enter_Password_Button__": {
+                                      "type": "FormButton",
+                                      "data": false,
+                                      "options": {
+                                        "buttonLabel": "_Enter password",
+                                        "label": "",
+                                        "textPosition": "text-right",
+                                        "textSize": "MS",
+                                        "textColor": "color1",
+                                        "nextprocess": {
+                                          "processName": "Passwords__",
+                                          "attachmentsMode": "all",
+                                          "willBeChild": true,
+                                          "returnToOriginalUrl": false
+                                        },
+                                        "action": "none",
+                                        "url": "",
+                                        "version": 0,
+                                        "style": 1,
+                                        "textStyle": "default"
+                                      },
+                                      "stamp": 102
+                                    },
+                                    "LabelExpiration__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Expiration__"
+                                      ],
+                                      "options": {
+                                        "label": "_Expiration",
+                                        "version": 0
+                                      },
+                                      "stamp": 24
+                                    },
+                                    "Expiration__": {
+                                      "type": "DateTime",
+                                      "data": [
+                                        "Expiration__"
+                                      ],
+                                      "options": {
+                                        "displayLongFormat": false,
+                                        "label": "_Expiration",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "version": 0
+                                      },
+                                      "stamp": 25
+                                    },
+                                    "LabelNotes__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Notes__"
+                                      ],
+                                      "options": {
+                                        "label": "_Notes",
+                                        "version": 0
+                                      },
+                                      "stamp": 26
+                                    },
+                                    "Notes__": {
+                                      "type": "LongText",
+                                      "data": [
+                                        "Notes__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Notes",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "numberOfLines": 15,
+                                        "browsable": false,
+                                        "version": 0,
+                                        "resizable": true,
+                                        "minNbLines": 1
+                                      },
+                                      "stamp": 27
+                                    },
+                                    "LabelDecrypt_Button__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 60
+                                    },
+                                    "Decrypt_Button__": {
+                                      "type": "FormButton",
+                                      "data": false,
+                                      "options": {
+                                        "buttonLabel": "_View password",
+                                        "label": "",
+                                        "textPosition": "text-right",
+                                        "textSize": "MS",
+                                        "textColor": "color1",
+                                        "nextprocess": {
+                                          "processName": "Passwords__",
+                                          "attachmentsMode": "all",
+                                          "willBeChild": true,
+                                          "returnToOriginalUrl": false
+                                        },
+                                        "action": "none",
+                                        "url": "",
+                                        "version": 0,
+                                        "style": 3
+                                      },
+                                      "stamp": 61
+                                    }
+                                  },
+                                  "stamp": 8
+                                }
+                              },
+                              "stamp": 7,
+                              "data": []
+                            }
+                          },
+                          "stamp": 6,
+                          "data": []
+                        }
+                      }
+                    },
+                    "form-content-center-3": {
+                      "type": "FlexibleFormLine",
+                      "data": [],
+                      "options": {
+                        "version": 0
+                      },
+                      "stamp": 107,
+                      "*": {
+                        "Password_generator_Panel": {
+                          "type": "PanelData",
+                          "data": [],
+                          "options": {
+                            "border": {},
+                            "labelLength": 0,
+                            "iconURL": "",
+                            "TitleFontSize": "S",
+                            "hideActionButtons": false,
+                            "hideTitleBar": false,
+                            "hideTitle": false,
+                            "backgroundcolor": "default",
+                            "labelsAlignment": "right",
+                            "label": "_Password generator",
+                            "leftImageURL": "",
+                            "removeMargins": false,
+                            "version": 0
+                          },
+                          "stamp": 32,
+                          "*": {
+                            "FieldsManager": {
+                              "type": "FieldsManager",
+                              "data": [],
+                              "options": {
+                                "controlsAssociation": {
+                                  "Generate_Button__": "LabelGenerate_Button__",
+                                  "LabelGenerate_Button__": "Generate_Button__",
+                                  "Uppercase_Required__": "LabelUppercase_Required__",
+                                  "LabelUppercase_Required__": "Uppercase_Required__",
+                                  "Lowercase_Required__": "LabelLowercase_Required__",
+                                  "LabelLowercase_Required__": "Lowercase_Required__",
+                                  "Numbers_Required__": "LabelNumbers_Required__",
+                                  "LabelNumbers_Required__": "Numbers_Required__",
+                                  "Special_Chars_Required__": "LabelSpecial_Chars_Required__",
+                                  "LabelSpecial_Chars_Required__": "Special_Chars_Required__",
+                                  "Required_Length__": "LabelRequired_Length__",
+                                  "LabelRequired_Length__": "Required_Length__"
+                                },
+                                "version": 0
+                              },
+                              "stamp": 33,
+                              "*": {
+                                "Grid": {
+                                  "type": "HorizontalLayout",
+                                  "data": [
+                                    "fields"
+                                  ],
+                                  "options": {
+                                    "ctrlsPos": {
+                                      "Generate_Button__": {
+                                        "line": 6,
+                                        "column": 2
+                                      },
+                                      "LabelGenerate_Button__": {
+                                        "line": 6,
+                                        "column": 1
+                                      },
+                                      "Uppercase_Required__": {
+                                        "line": 1,
+                                        "column": 2
+                                      },
+                                      "LabelUppercase_Required__": {
+                                        "line": 1,
+                                        "column": 1
+                                      },
+                                      "Lowercase_Required__": {
+                                        "line": 2,
+                                        "column": 2
+                                      },
+                                      "LabelLowercase_Required__": {
+                                        "line": 2,
+                                        "column": 1
+                                      },
+                                      "Numbers_Required__": {
+                                        "line": 3,
+                                        "column": 2
+                                      },
+                                      "LabelNumbers_Required__": {
+                                        "line": 3,
+                                        "column": 1
+                                      },
+                                      "Special_Chars_Required__": {
+                                        "line": 4,
+                                        "column": 2
+                                      },
+                                      "LabelSpecial_Chars_Required__": {
+                                        "line": 4,
+                                        "column": 1
+                                      },
+                                      "Required_Length__": {
+                                        "line": 5,
+                                        "column": 2
+                                      },
+                                      "LabelRequired_Length__": {
+                                        "line": 5,
+                                        "column": 1
+                                      }
+                                    },
+                                    "lines": 6,
+                                    "colspans": [
+                                      [],
+                                      [],
+                                      [],
+                                      [],
+                                      [],
+                                      []
+                                    ],
+                                    "version": 0
+                                  },
+                                  "stamp": 35,
+                                  "*": {
+                                    "LabelUppercase_Required__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Uppercase_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_A-Z",
+                                        "version": 0
+                                      },
+                                      "stamp": 36
+                                    },
+                                    "Uppercase_Required__": {
+                                      "type": "CheckBox",
+                                      "data": [
+                                        "Uppercase_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_A-Z",
+                                        "activable": true,
+                                        "width": "15",
+                                        "version": 0,
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "defaultValue": true
+                                      },
+                                      "stamp": 37
+                                    },
+                                    "LabelLowercase_Required__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Lowercase_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_a-z",
+                                        "version": 0
+                                      },
+                                      "stamp": 38
+                                    },
+                                    "Lowercase_Required__": {
+                                      "type": "CheckBox",
+                                      "data": [
+                                        "Lowercase_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_a-z",
+                                        "activable": true,
+                                        "width": "15",
+                                        "version": 0,
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "defaultValue": true
+                                      },
+                                      "stamp": 39
+                                    },
+                                    "LabelNumbers_Required__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Numbers_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_0-9",
+                                        "version": 0
+                                      },
+                                      "stamp": 40
+                                    },
+                                    "Numbers_Required__": {
+                                      "type": "CheckBox",
+                                      "data": [
+                                        "Numbers_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_0-9",
+                                        "activable": true,
+                                        "width": "15",
+                                        "version": 0,
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "defaultValue": true
+                                      },
+                                      "stamp": 41
+                                    },
+                                    "LabelSpecial_Chars_Required__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Special_Chars_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_/*_...",
+                                        "version": 0
+                                      },
+                                      "stamp": 42
+                                    },
+                                    "Special_Chars_Required__": {
+                                      "type": "CheckBox",
+                                      "data": [
+                                        "Special_Chars_Required__"
+                                      ],
+                                      "options": {
+                                        "label": "_/*_...",
+                                        "activable": true,
+                                        "width": "15",
+                                        "version": 0,
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format"
+                                      },
+                                      "stamp": 43
+                                    },
+                                    "LabelRequired_Length__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "Required_Length__"
+                                      ],
+                                      "options": {
+                                        "label": "_Length",
+                                        "version": 0
+                                      },
+                                      "stamp": 44
+                                    },
+                                    "Required_Length__": {
+                                      "type": "Integer",
+                                      "data": [
+                                        "Required_Length__"
+                                      ],
+                                      "options": {
+                                        "version": 2,
+                                        "textSize": "S",
+                                        "textAlignment": "right",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "integer": true,
+                                        "label": "_Length",
+                                        "precision_internal": 0,
+                                        "precision_current": 0,
+                                        "activable": true,
+                                        "width": "25",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "defaultValue": "12",
+                                        "browsable": false,
+                                        "autocompletable": false
+                                      },
+                                      "stamp": 45
+                                    },
+                                    "LabelGenerate_Button__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 46
+                                    },
+                                    "Generate_Button__": {
+                                      "type": "FormButton",
+                                      "data": false,
+                                      "options": {
+                                        "buttonLabel": "_Generate",
+                                        "label": "",
+                                        "textPosition": "text-right",
+                                        "textSize": "MS",
+                                        "textColor": "color1",
+                                        "nextprocess": {
+                                          "processName": "Passwords__",
+                                          "attachmentsMode": "all",
+                                          "willBeChild": true,
+                                          "returnToOriginalUrl": false
+                                        },
+                                        "action": "none",
+                                        "url": "",
+                                        "version": 0,
+                                        "style": 1
+                                      },
+                                      "stamp": 47
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "stamp": 5,
+                  "data": []
+                }
+              },
+              "stamp": 4,
+              "data": []
+            }
+          },
+          "stamp": 3,
+          "data": []
+        },
+        "form-footer": {
+          "type": "FlexibleFormFooter",
+          "options": {
+            "splitterType": "simple-h",
+            "version": 0
+          },
+          "*": {
+            "Save": {
+              "type": "SubmitButton",
+              "options": {
+                "label": "_Save",
+                "action": "savequit",
+                "submit": true,
+                "version": 0,
+                "shortCut": "S"
+              },
+              "stamp": 11,
+              "data": []
+            },
+            "Close": {
+              "type": "SubmitButton",
+              "options": {
+                "label": "_Close",
+                "action": "cancel",
+                "submit": true,
+                "version": 0,
+                "shortCut": "Q"
+              },
+              "stamp": 12,
+              "data": []
+            },
+            "Delete": {
+              "type": "SubmitButton",
+              "options": {
+                "label": "_Delete",
+                "action": "delete",
+                "submit": true,
+                "version": 0,
+                "disabled": true
+              },
+              "stamp": 13,
+              "data": []
+            }
+          },
+          "stamp": 10,
+          "data": []
+        }
+      },
+      "stamp": 1,
+      "data": []
+    }
+  },
+  "stamps": 115,
+  "data": []
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TranslateCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" frozen="false">
+	<items>
+		<TranslateItem>
+			<key>_/*_...</key>
+			<val>/*_...</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_0-9</key>
+			<val>0-9</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_a-z</key>
+			<val>a-z</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_A-Z</key>
+			<val>A-Z</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Encryption key</key>
+			<val>Encryption key</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Enter new password</key>
+			<val>Enter new password</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Enter password</key>
+			<val>Enter password</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Expiration</key>
+			<val>Expiration</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Generate</key>
+			<val>Generate</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_IV</key>
+			<val>IV</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Length</key>
+			<val>Length</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Notes</key>
+			<val>Notes</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Password</key>
+			<val>Password (encrypted)</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Password (clear)</key>
+			<val>Password (clear)</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Password entry</key>
+			<val>Password entry</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Password generator</key>
+			<val>Password generator</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Title</key>
+			<val>Title</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Url</key>
+			<val>Url</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_User name</key>
+			<val>User name</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_View password</key>
+			<val>View password</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>Passwords</key>
+			<val>Passwords</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>Passwords__</key>
+			<val>Passwords</val>
+		</TranslateItem>
+	</items>
+</TranslateCollection>
