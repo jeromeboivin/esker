@@ -82,14 +82,16 @@
                                   "LabelExpiration__": "Expiration__",
                                   "Notes__": "LabelNotes__",
                                   "LabelNotes__": "Notes__",
-                                  "Enter_Password_Button__": "LabelEnter_Password_Button__",
-                                  "LabelEnter_Password_Button__": "Enter_Password_Button__",
                                   "LabelDecrypt_Button__": "Decrypt_Button__",
                                   "Decrypt_Button__": "LabelDecrypt_Button__",
                                   "LabelEncryption_key__": "Encryption_key__",
                                   "Encryption_key__": "LabelEncryption_key__",
                                   "LabelIV__": "IV__",
                                   "IV__": "LabelIV__",
+                                  "CopyToClipboard__": "LabelCopyToClipboard__",
+                                  "LabelCopyToClipboard__": "CopyToClipboard__",
+                                  "CopyButton__": "LabelCopyButton__",
+                                  "LabelCopyButton__": "CopyButton__",
                                   "ClearPassword__": "LabelClearPassword__",
                                   "LabelClearPassword__": "ClearPassword__"
                                 },
@@ -99,64 +101,56 @@
                                 "Grid": {
                                   "type": "GridLayout",
                                   "options": {
-                                    "lines": 15,
+                                    "lines": 16,
                                     "columns": 2,
                                     "version": 0,
                                     "ctrlsPos": {
                                       "Title__": {
-                                        "line": 2,
+                                        "line": 3,
                                         "column": 2
                                       },
                                       "LabelTitle__": {
-                                        "line": 2,
+                                        "line": 3,
                                         "column": 1
                                       },
                                       "User_name__": {
-                                        "line": 3,
+                                        "line": 4,
                                         "column": 2
                                       },
                                       "LabelUser_name__": {
-                                        "line": 3,
+                                        "line": 4,
                                         "column": 1
                                       },
                                       "Password__": {
-                                        "line": 10,
+                                        "line": 12,
                                         "column": 2
                                       },
                                       "LabelPassword__": {
-                                        "line": 10,
+                                        "line": 12,
                                         "column": 1
                                       },
                                       "Url__": {
-                                        "line": 5,
+                                        "line": 6,
                                         "column": 2
                                       },
                                       "LabelUrl__": {
-                                        "line": 5,
+                                        "line": 6,
                                         "column": 1
                                       },
                                       "Expiration__": {
-                                        "line": 6,
+                                        "line": 7,
                                         "column": 2
                                       },
                                       "LabelExpiration__": {
-                                        "line": 6,
+                                        "line": 7,
                                         "column": 1
                                       },
                                       "Notes__": {
-                                        "line": 8,
+                                        "line": 9,
                                         "column": 2
                                       },
                                       "LabelNotes__": {
-                                        "line": 8,
-                                        "column": 1
-                                      },
-                                      "Enter_Password_Button__": {
-                                        "line": 12,
-                                        "column": 2
-                                      },
-                                      "LabelEnter_Password_Button__": {
-                                        "line": 12,
+                                        "line": 9,
                                         "column": 1
                                       },
                                       "LabelDecrypt_Button__": {
@@ -172,7 +166,7 @@
                                         "column": 1
                                       },
                                       "Spacer_line2__": {
-                                        "line": 4,
+                                        "line": 5,
                                         "column": 1
                                       },
                                       "LabelEncryption_key__": {
@@ -192,11 +186,27 @@
                                         "column": 2
                                       },
                                       "Spacer_line3__": {
-                                        "line": 7,
+                                        "line": 8,
                                         "column": 1
                                       },
                                       "Spacer_line4__": {
-                                        "line": 9,
+                                        "line": 10,
+                                        "column": 1
+                                      },
+                                      "CopyToClipboard__": {
+                                        "line": 2,
+                                        "column": 2
+                                      },
+                                      "LabelCopyToClipboard__": {
+                                        "line": 2,
+                                        "column": 1
+                                      },
+                                      "CopyButton__": {
+                                        "line": 16,
+                                        "column": 2
+                                      },
+                                      "LabelCopyButton__": {
+                                        "line": 16,
                                         "column": 1
                                       },
                                       "ClearPassword__": {
@@ -215,6 +225,7 @@
                                           "length": 2
                                         }
                                       ],
+                                      [],
                                       [],
                                       [],
                                       [
@@ -270,6 +281,25 @@
                                         "version": 0
                                       },
                                       "stamp": 55
+                                    },
+                                    "LabelCopyToClipboard__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 118
+                                    },
+                                    "CopyToClipboard__": {
+                                      "type": "HTML",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "htmlContent": "<SCRIPT>\nwindow.notifyMe = function(message)\n{\n\t// Let's check if the browser supports notifications\n\tif (!Notification) {\n\t\treturn;\n\t}\n\t\n\t// Let's check whether notification permissions have already been granted\n\telse if (Notification.permission === \"granted\") {\n\t\t// If it's okay let's create a notification\n\t\tvar notification = new Notification(message);\n\t}\n\t\n\t// Otherwise, we need to ask the user for permission\n\telse if (Notification.permission !== \"denied\") {\n\t\tNotification.requestPermission(function (permission) {\n\t\t\t// If the user accepts, let's create a notification\n\t\t\tif (permission === \"granted\") {\n\t\t\t\tvar notification = new Notification(message);\n\t\t\t}\n\t\t});\n\t}\n\t\n\t// At last, if the user has denied notifications, and you \n\t// want to be respectful there is no need to bother them any more.\n};\nwindow.copyToClipboard = function(secretInfo, message) {\nvar $tempInput = document.createElement('INPUT');\ndocument.body.appendChild($tempInput);\n$tempInput.setAttribute('value', secretInfo)\n$tempInput.select();\ndocument.execCommand('copy');\ndocument.body.removeChild($tempInput);\nwindow.notifyMe(message);\n};\n</SCRIPT>",
+                                        "version": 0
+                                      },
+                                      "stamp": 119
                                     },
                                     "LabelIV__": {
                                       "type": "Label",
@@ -462,6 +492,37 @@
                                       },
                                       "stamp": 109
                                     },
+                                    "LabelClearPassword__": {
+                                      "type": "Label",
+                                      "data": [],
+                                      "options": {
+                                        "label": "_ClearPassword",
+                                        "version": 0
+                                      },
+                                      "stamp": 122
+                                    },
+                                    "ClearPassword__": {
+                                      "type": "ShortText",
+                                      "data": [],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "version": 1,
+                                        "label": "_ClearPassword",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "notInDB": true,
+                                        "dataType": "String",
+                                        "browsable": false,
+                                        "autocompletable": false
+                                      },
+                                      "stamp": 123
+                                    },
                                     "LabelPassword__": {
                                       "type": "Label",
                                       "data": [
@@ -495,69 +556,6 @@
                                         "readonly": true
                                       },
                                       "stamp": 19
-                                    },
-                                    "LabelClearPassword__": {
-                                      "type": "Label",
-                                      "data": [],
-                                      "options": {
-                                        "label": "_ClearPassword",
-                                        "version": 0
-                                      },
-                                      "stamp": 114
-                                    },
-                                    "ClearPassword__": {
-                                      "type": "ShortText",
-                                      "data": [],
-                                      "options": {
-                                        "textSize": "S",
-                                        "textAlignment": "left",
-                                        "textStyle": "default",
-                                        "textColor": "default",
-                                        "version": 1,
-                                        "label": "_ClearPassword",
-                                        "activable": true,
-                                        "width": "500",
-                                        "helpText": "",
-                                        "helpURL": "",
-                                        "helpFormat": "HTML Format",
-                                        "browsable": false,
-                                        "readonly": true,
-                                        "notInDB": true,
-                                        "dataType": "String"
-                                      },
-                                      "stamp": 115
-                                    },
-                                    "LabelEnter_Password_Button__": {
-                                      "type": "Label",
-                                      "data": false,
-                                      "options": {
-                                        "label": "",
-                                        "version": 0
-                                      },
-                                      "stamp": 101
-                                    },
-                                    "Enter_Password_Button__": {
-                                      "type": "FormButton",
-                                      "data": false,
-                                      "options": {
-                                        "buttonLabel": "_Enter password",
-                                        "label": "",
-                                        "textPosition": "text-right",
-                                        "textSize": "MS",
-                                        "textColor": "color1",
-                                        "nextprocess": {
-                                          "processName": "Passwords__",
-                                          "attachmentsMode": "all",
-                                          "willBeChild": true,
-                                          "returnToOriginalUrl": false
-                                        },
-                                        "action": "none",
-                                        "url": "",
-                                        "version": 0,
-                                        "style": 1,
-                                        "textStyle": "default"
-                                      },
-                                      "stamp": 102
                                     },
                                     "LabelExpiration__": {
                                       "type": "Label",
@@ -635,7 +633,7 @@
                                       "type": "FormButton",
                                       "data": false,
                                       "options": {
-                                        "buttonLabel": "_View password",
+                                        "buttonLabel": "_Decrypt password",
                                         "label": "",
                                         "textPosition": "text-right",
                                         "textSize": "MS",
@@ -649,9 +647,29 @@
                                         "action": "none",
                                         "url": "",
                                         "version": 0,
-                                        "style": 3
+                                        "style": 3,
+                                        "textStyle": "default",
+                                        "urlImageOverlay": ""
                                       },
                                       "stamp": 61
+                                    },
+                                    "LabelCopyButton__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 120
+                                    },
+                                    "CopyButton__": {
+                                      "type": "HTML",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 121
                                     }
                                   },
                                   "stamp": 8
@@ -1036,6 +1054,6 @@
       "data": []
     }
   },
-  "stamps": 115,
+  "stamps": 124,
   "data": []
 }

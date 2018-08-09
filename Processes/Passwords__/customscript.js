@@ -59,6 +59,8 @@ null!=d[3]?b[d[2]]=parseInt(d[3],10):null!=d[4]?b[d[2]]=d[2].match(/^(ct|adata|s
 b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return c}};sjcl.encrypt=sjcl.json.encrypt;sjcl.decrypt=sjcl.json.decrypt;sjcl.misc.pa={};sjcl.misc.cachedPbkdf2=function(a,b){var c=sjcl.misc.pa,d;b=b||{};d=b.iter||1E3;c=c[a]=c[a]||{};d=c[d]=c[d]||{firstSalt:b.salt&&b.salt.length?b.salt.slice(0):sjcl.random.randomWords(2,0)};c=void 0===b.salt?d.firstSalt:b.salt;d[c]=d[c]||sjcl.misc.pbkdf2(a,c,b.iter);return{key:d[c].slice(0),salt:c.slice(0)}};
 "undefined"!==typeof module&&module.exports&&(module.exports=sjcl);"function"===typeof define&&define([],function(){return sjcl});
 
+var fakePassword = "************";
+
 var sessionStorageAPI = {
     // This method may not be needed as we go along
     // the support is becoming better and better day-by-day
@@ -231,33 +233,6 @@ var PasswordGenerator = /** @class */ (function () {
     return PasswordGenerator;
 }());
 
-var notifyMe = function(message)
-{
-	// Let's check if the browser supports notifications
-	if (!Notification) {
-		return;
-	}
-	
-	// Let's check whether notification permissions have already been granted
-	else if (Notification.permission === "granted") {
-		// If it's okay let's create a notification
-		var notification = new Notification(message);
-	}
-	
-	// Otherwise, we need to ask the user for permission
-	else if (Notification.permission !== "denied") {
-		Notification.requestPermission(function (permission) {
-			// If the user accepts, let's create a notification
-			if (permission === "granted") {
-				var notification = new Notification(message);
-			}
-		});
-	}
-	
-	// At last, if the user has denied notifications, and you 
-	// want to be respectful there is no need to bother them any more.
-};
-
 var b64EncodeUnicode = function(data) {
 	var result = sjcl.codec.base64.fromBits(data);
     return result;
@@ -279,6 +254,7 @@ Controls.Generate_Button__.OnClick = function()
 	var useSymbols = Controls.Special_Chars_Required__.IsChecked();
 	var password = gen.generatePassword(passwordLength, useUppercase, useLowercase, useNumbers, useSymbols);
 	
+	Controls.ClearPassword__.SetValue(Array(parseInt(passwordLength) + 1).join("*"));
 	encryptPassword(password);
 };
 
@@ -346,16 +322,45 @@ var decryptPassword = function(encryptedPassword)
 	}
 };
 
+function updateCopyToClipboardButton(clearPassword, timeout)
+{
+	if (timeout === 0)
+	{
+		Controls.Decrypt_Button__.Hide(false);
+		Controls.ClearPassword__.SetValue(fakePassword);
+
+		// Make copy to clipboard button disappear
+		Controls.CopyButton__.SetHTML("");
+	}
+	else
+	{
+		var html = "<a onclick=\"window.copyToClipboard('" + 
+			clearPassword +
+			"','" +
+			Language.Translate("_Password copied to clipboard.") +
+			"')\" class=\"Button FormButton notSelectable Button_Post\" tabindex=\"-1\"><span class=\"button_span_text\">" +
+			Language.Translate("_Copy to clipboard ({0} sec...)", false, timeout/1000) +
+			"</span></a>";
+
+		Controls.CopyButton__.SetHTML(html);
+		
+		setTimeout(function() { updateCopyToClipboardButton(clearPassword, timeout - 1000) }, 1000);
+	}
+}
+
 Controls.Decrypt_Button__.OnClick = function()
 {
 	var clearPassword = decryptPassword(Controls.Password__.GetValue());
 	Controls.ClearPassword__.SetValue(clearPassword);
-	Controls.ClearPassword__.Focus();
-	notifyMe(Language.Translate("Press CTRL+C to copy password to clipboard."));
+	Controls.Decrypt_Button__.Hide();
+	updateCopyToClipboardButton(clearPassword, 5000);
 };
 
 Controls.Save.OnClick = function()
 {
+	// Ensure clear password will not be saved
+	Controls.ClearPassword__.SetValue(fakePassword);
+	Controls.CopyButton__.SetHTML("");
 };
 
 var onNewManualPassword = function(password)
@@ -363,13 +368,21 @@ var onNewManualPassword = function(password)
 	encryptPassword(password);
 };
 
-Controls.Enter_Password_Button__.OnClick = function()
+Controls.ClearPassword__.OnChange = function()
 {
-	Popup.Prompt("", "", onNewManualPassword, null, "_Enter new password");
+	var control = this;
+	onNewManualPassword(control.GetValue());
 };
 
 // Main
+Controls.Password__.Hide();
 Controls.Encryption_key__.Hide();
 Controls.IV__.Hide();
 
-Controls.Decrypt_Button__.SetDisabled((Controls.Password__.GetValue() == null));
+var newPassword = Controls.Password__.GetValue() == null;
+Controls.Decrypt_Button__.SetDisabled(newPassword);
+
+if (!newPassword)
+{
+	Controls.ClearPassword__.SetValue(fakePassword);
+}

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TranslateCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" frozen="false">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TranslateCollection frozen="false">
 	<items>
 		<TranslateItem>
 			<key>_/*_...</key>
@@ -16,6 +16,18 @@
 		<TranslateItem>
 			<key>_A-Z</key>
 			<val>A-Z</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_ClearPassword</key>
+			<val>Password</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Copy to clipboard ({0} sec...)</key>
+			<val>Copy to clipboard ({0} sec...)</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Decrypt password</key>
+			<val>Decrypt password</val>
 		</TranslateItem>
 		<TranslateItem>
 			<key>_Encryption key</key>
@@ -56,6 +68,10 @@
 		<TranslateItem>
 			<key>_Password (clear)</key>
 			<val>Password (clear)</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Password copied to clipboard.</key>
+			<val>Password copied to clipboard.</val>
 		</TranslateItem>
 		<TranslateItem>
 			<key>_Password entry</key>
