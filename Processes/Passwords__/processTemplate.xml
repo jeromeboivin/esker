@@ -1,4 +1,4 @@
-﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-08 16:51:26" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="Passwords__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="PHQGE40164" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomTable" upgradable="0" userid="" version="42" visibility="1">
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-09 11:14:12" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="Passwords__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="PHQGE40164" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomTable" upgradable="0" userid="" version="27" visibility="1">
 	<properties>
 		<gdr />
 		<lg>
@@ -126,6 +126,32 @@
 			</help>
 			<ui>
 				<_type>Boolean</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="PHQG16E23C8" id="NoID" label="_MasterKeyDerivationSalt" length="50" name="MasterKeyDerivationSalt__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/MasterKeyDerivationSalt__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_MasterKeyDerivationSalt</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
 				<automatic>true</automatic>
 			</ui>
 		</properties>
@@ -264,6 +290,7 @@
 		<properties>
 			<db>
 				<alias />
+				<index vartype="INT">1</index>
 				<noxml>1</noxml>
 				<fullname>/job/processfields/Title__</fullname>
 				<defaultvalue />
@@ -318,6 +345,7 @@
 		<properties>
 			<db>
 				<alias />
+				<index vartype="INT">1</index>
 				<noxml>1</noxml>
 				<fullname>/job/processfields/Url__</fullname>
 				<defaultvalue />
@@ -344,12 +372,39 @@
 		<properties>
 			<db>
 				<alias />
+				<index vartype="INT">1</index>
 				<noxml>1</noxml>
 				<fullname>/job/processfields/User_name__</fullname>
 				<defaultvalue />
 			</db>
 			<extrainfo>
 				<Label>_User name</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="PHQG16E23CA" id="NoID" label="_WrappingKeyIV" length="50" name="WrappingKeyIV__" originalProcessID="PHQGE40164" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/WrappingKeyIV__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>_WrappingKeyIV</Label>
 				<Alias />
 				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
 			</extrainfo>

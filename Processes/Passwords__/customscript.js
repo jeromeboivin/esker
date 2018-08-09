@@ -60,6 +60,8 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 "undefined"!==typeof module&&module.exports&&(module.exports=sjcl);"function"===typeof define&&define([],function(){return sjcl});
 
 var fakePassword = "************";
+var masterPassword = "UPT59Lhsar$hS7hT9N3E4r@UC_85Y95gZCE&h*F!";
+var masterPasswordDerivationRounds = 100000;
 
 var sessionStorageAPI = {
     // This method may not be needed as we go along
@@ -258,24 +260,63 @@ Controls.Generate_Button__.OnClick = function()
 	encryptPassword(password);
 };
 
+var deriveMasterKey = function(password, rounds)
+{
+	var wrappingKeySalt = Controls.MasterKeyDerivationSalt__.GetValue();
+	
+	if (!wrappingKeySalt)
+	{
+		var gen = new PasswordGenerator();
+		wrappingKeySalt = gen.generatePassword(16, true, true, true, true);
+		Controls.MasterKeyDerivationSalt__.SetValue(wrappingKeySalt);
+	}
+	
+	var derivedKey = sjcl.misc.pbkdf2(password, wrappingKeySalt, rounds, 256);
+	return derivedKey;
+};
+
 var encryptPassword = function(password)
 {
+	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterPasswordDerivationRounds);
+	
 	// Generate new encryption key + initialization vector
 	var keyBytes = new Uint32Array(256 / 32);
 	var ivBytes = new Uint32Array(128 / 32);
+	var wrappingKeyIVBytes = new Uint32Array(128 / 32);
 	crypto.getRandomValues(keyBytes);
 	crypto.getRandomValues(ivBytes);
-	var key = b64EncodeUnicode(keyBytes);
+	crypto.getRandomValues(wrappingKeyIVBytes);
 	var iv = b64EncodeUnicode(ivBytes);
-	Controls.Encryption_key__.SetValue(key);
-	Controls.IV__.SetValue(iv);
+	var wrappingKeyIV = b64EncodeUnicode(wrappingKeyIVBytes);
+	Controls.WrappingKeyIV__.SetValue(wrappingKeyIV);
 	
-	// Initialize AES-GCM engine from key	
-	var aes = new sjcl.cipher.aes(keyBytes);
-	var passwordBytes = sjcl.codec.utf8String.toBits(password);
 	var additionalData = [];
 	var tagLength = 128;
 	var cipherText = null;
+	
+	// Encrypt key with wrapping key derived from master password
+	var aes = new sjcl.cipher.aes(wrappingKeyBytes);
+	try
+	{
+		cipherText = sjcl.mode.gcm.encrypt(aes, 
+										   b64DecodeUnicode(b64EncodeUnicode(keyBytes)),
+										   wrappingKeyIVBytes,
+										   additionalData,
+										   tagLength);
+		var key = b64EncodeUnicode(cipherText);
+		Controls.Encryption_key__.SetValue(key);
+	}
+	catch(ex)
+	{
+		Controls.ClearPassword__.SetError(ex);
+		return;
+	}
+
+	Controls.IV__.SetValue(iv);
+	
+	// Initialize AES-GCM engine from key	
+	aes = new sjcl.cipher.aes(keyBytes);
+	var passwordBytes = sjcl.codec.utf8String.toBits(password);
 	
 	try
 	{
@@ -289,23 +330,45 @@ var encryptPassword = function(password)
 	}
 	catch(ex)
 	{
-		Controls.Password__.SetError(ex);
+		Controls.ClearPassword__.SetError(ex);
 	}
 };
 
 var decryptPassword = function(encryptedPassword)
 {
-	if (Controls.Encryption_key__.GetValue() == null || Controls.IV__.GetValue() == null)
-		return;
+	if (Controls.Encryption_key__.GetValue() == null || 
+		Controls.IV__.GetValue() == null ||
+		Controls.WrappingKeyIV__.GetValue() == null ||
+	    Controls.MasterKeyDerivationSalt__.GetValue() == null)
+	{
+		return null;
+	}
 	
-	var keyBytes = new Uint32Array(b64DecodeUnicode(Controls.Encryption_key__.GetValue()));
+	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterPasswordDerivationRounds);
+	
+	var wrappingKeyIVBytes = new Uint32Array(b64DecodeUnicode(Controls.WrappingKeyIV__.GetValue()));
+	var encryptedKeyBytes = b64DecodeUnicode(Controls.Encryption_key__.GetValue());
 	var ivBytes = new Uint32Array(b64DecodeUnicode(Controls.IV__.GetValue()));
 	var cipherText = b64DecodeUnicode(encryptedPassword);
 	
-	// Initialize AES-GCM engine from key
-	var aes = new sjcl.cipher.aes(keyBytes);
+	// Decrypt key with wrapping key derived from master password
+	var keyBytes = null;
+	var aes = new sjcl.cipher.aes(wrappingKeyBytes);
 	var additionalData = [];
 	var tagLength = 128;
+	
+	try
+	{
+		keyBytes = new Uint32Array(sjcl.mode.gcm.decrypt(aes, encryptedKeyBytes, wrappingKeyIVBytes, additionalData, tagLength));
+	}
+	catch(ex)
+	{
+		Controls.ClearPassword__.SetError(ex);
+		return null;
+	}
+	
+	// Initialize AES-GCM engine from key
+	aes = new sjcl.cipher.aes(keyBytes);
 	var clearPasswordBytes = null;
 	
 	try
@@ -318,7 +381,7 @@ var decryptPassword = function(encryptedPassword)
 	}
 	catch(ex)
 	{
-		Controls.Password__.SetError(ex);
+		Controls.ClearPassword__.SetError(ex);
 	}
 };
 
@@ -359,7 +422,11 @@ Controls.Decrypt_Button__.OnClick = function()
 Controls.Save.OnClick = function()
 {
 	// Ensure clear password will not be saved
-	Controls.ClearPassword__.SetValue(fakePassword);
+	if (Controls.Password__.GetValue())
+	{
+		Controls.ClearPassword__.SetValue(fakePassword);
+	}
+	
 	Controls.CopyButton__.SetHTML("");
 };
 
@@ -378,6 +445,8 @@ Controls.ClearPassword__.OnChange = function()
 Controls.Password__.Hide();
 Controls.Encryption_key__.Hide();
 Controls.IV__.Hide();
+Controls.WrappingKeyIV__.Hide();
+Controls.MasterKeyDerivationSalt__.Hide();
 
 var newPassword = Controls.Password__.GetValue() == null;
 Controls.Decrypt_Button__.SetDisabled(newPassword);

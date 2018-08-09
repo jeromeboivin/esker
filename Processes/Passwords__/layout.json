@@ -93,7 +93,11 @@
                                   "CopyButton__": "LabelCopyButton__",
                                   "LabelCopyButton__": "CopyButton__",
                                   "ClearPassword__": "LabelClearPassword__",
-                                  "LabelClearPassword__": "ClearPassword__"
+                                  "LabelClearPassword__": "ClearPassword__",
+                                  "MasterKeyDerivationSalt__": "LabelMasterKeyDerivationSalt__",
+                                  "LabelMasterKeyDerivationSalt__": "MasterKeyDerivationSalt__",
+                                  "WrappingKeyIV__": "LabelWrappingKeyIV__",
+                                  "LabelWrappingKeyIV__": "WrappingKeyIV__"
                                 },
                                 "version": 0
                               },
@@ -101,7 +105,7 @@
                                 "Grid": {
                                   "type": "GridLayout",
                                   "options": {
-                                    "lines": 16,
+                                    "lines": 18,
                                     "columns": 2,
                                     "version": 0,
                                     "ctrlsPos": {
@@ -154,11 +158,11 @@
                                         "column": 1
                                       },
                                       "LabelDecrypt_Button__": {
-                                        "line": 15,
+                                        "line": 17,
                                         "column": 1
                                       },
                                       "Decrypt_Button__": {
-                                        "line": 15,
+                                        "line": 17,
                                         "column": 2
                                       },
                                       "Spacer_line__": {
@@ -202,11 +206,11 @@
                                         "column": 1
                                       },
                                       "CopyButton__": {
-                                        "line": 16,
+                                        "line": 18,
                                         "column": 2
                                       },
                                       "LabelCopyButton__": {
-                                        "line": 16,
+                                        "line": 18,
                                         "column": 1
                                       },
                                       "ClearPassword__": {
@@ -215,6 +219,22 @@
                                       },
                                       "LabelClearPassword__": {
                                         "line": 11,
+                                        "column": 1
+                                      },
+                                      "MasterKeyDerivationSalt__": {
+                                        "line": 15,
+                                        "column": 2
+                                      },
+                                      "LabelMasterKeyDerivationSalt__": {
+                                        "line": 15,
+                                        "column": 1
+                                      },
+                                      "WrappingKeyIV__": {
+                                        "line": 16,
+                                        "column": 2
+                                      },
+                                      "LabelWrappingKeyIV__": {
+                                        "line": 16,
                                         "column": 1
                                       }
                                     },
@@ -249,6 +269,8 @@
                                           "length": 2
                                         }
                                       ],
+                                      [],
+                                      [],
                                       [],
                                       [],
                                       [],
@@ -619,6 +641,71 @@
                                         "minNbLines": 1
                                       },
                                       "stamp": 27
+                                    },
+                                    "LabelMasterKeyDerivationSalt__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "MasterKeyDerivationSalt__"
+                                      ],
+                                      "options": {
+                                        "label": "_MasterKeyDerivationSalt",
+                                        "version": 0
+                                      },
+                                      "stamp": 125
+                                    },
+                                    "MasterKeyDerivationSalt__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "MasterKeyDerivationSalt__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "version": 1,
+                                        "label": "_MasterKeyDerivationSalt",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "autocompletable": false
+                                      },
+                                      "stamp": 126
+                                    },
+                                    "LabelWrappingKeyIV__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "WrappingKeyIV__"
+                                      ],
+                                      "options": {
+                                        "label": "_WrappingKeyIV"
+                                      },
+                                      "stamp": 127
+                                    },
+                                    "WrappingKeyIV__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "WrappingKeyIV__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "version": 1,
+                                        "label": "_WrappingKeyIV",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "browsable": false,
+                                        "autocompletable": false
+                                      },
+                                      "stamp": 128
                                     },
                                     "LabelDecrypt_Button__": {
                                       "type": "Label",
@@ -1054,6 +1141,6 @@
       "data": []
     }
   },
-  "stamps": 124,
+  "stamps": 128,
   "data": []
 }
