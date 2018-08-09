@@ -502,7 +502,7 @@
                                       "stamp": 122
                                     },
                                     "ClearPassword__": {
-                                      "type": "ShortText",
+                                      "type": "Password",
                                       "data": [],
                                       "options": {
                                         "textSize": "S",
