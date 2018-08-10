@@ -96,7 +96,9 @@
                                   "MasterKeyDerivationSalt__": "LabelMasterKeyDerivationSalt__",
                                   "LabelMasterKeyDerivationSalt__": "MasterKeyDerivationSalt__",
                                   "WrappingKeyIV__": "LabelWrappingKeyIV__",
-                                  "LabelWrappingKeyIV__": "WrappingKeyIV__"
+                                  "LabelWrappingKeyIV__": "WrappingKeyIV__",
+                                  "ForgetMasterPasswordButton__": "LabelForgetMasterPasswordButton__",
+                                  "LabelForgetMasterPasswordButton__": "ForgetMasterPasswordButton__"
                                 },
                                 "version": 0
                               },
@@ -104,7 +106,7 @@
                                 "Grid": {
                                   "type": "GridLayout",
                                   "options": {
-                                    "lines": 17,
+                                    "lines": 19,
                                     "columns": 2,
                                     "version": 0,
                                     "ctrlsPos": {
@@ -227,6 +229,18 @@
                                       "LabelWrappingKeyIV__": {
                                         "line": 15,
                                         "column": 1
+                                      },
+                                      "ForgetMasterPasswordButton__": {
+                                        "line": 19,
+                                        "column": 2
+                                      },
+                                      "LabelForgetMasterPasswordButton__": {
+                                        "line": 19,
+                                        "column": 1
+                                      },
+                                      "Spacer_line6__": {
+                                        "line": 18,
+                                        "column": 1
                                       }
                                     },
                                     "colspans": [
@@ -266,6 +280,13 @@
                                       [],
                                       [],
                                       [],
+                                      [],
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
                                       []
                                     ]
                                   },
@@ -690,9 +711,10 @@
                                         "action": "none",
                                         "url": "",
                                         "version": 0,
-                                        "style": 3,
+                                        "style": 5,
                                         "textStyle": "default",
-                                        "urlImageOverlay": ""
+                                        "urlImageOverlay": "",
+                                        "awesomeClasses": "fa fa-key"
                                       },
                                       "stamp": 61
                                     },
@@ -713,6 +735,52 @@
                                         "version": 0
                                       },
                                       "stamp": 121
+                                    },
+                                    "Spacer_line6__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line6",
+                                        "version": 0
+                                      },
+                                      "stamp": 148
+                                    },
+                                    "LabelForgetMasterPasswordButton__": {
+                                      "type": "Label",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 146
+                                    },
+                                    "ForgetMasterPasswordButton__": {
+                                      "type": "FormButton",
+                                      "data": false,
+                                      "options": {
+                                        "buttonLabel": "_Forget master password",
+                                        "label": "",
+                                        "textPosition": "text-right",
+                                        "textSize": "MS",
+                                        "textStyle": "default",
+                                        "textColor": "color2",
+                                        "nextprocess": {
+                                          "processName": "Passwords__",
+                                          "attachmentsMode": "all",
+                                          "willBeChild": true,
+                                          "returnToOriginalUrl": false
+                                        },
+                                        "urlImageOverlay": "",
+                                        "awesomeClasses": "fa fa-lock",
+                                        "style": 5,
+                                        "action": "none",
+                                        "url": "",
+                                        "version": 0
+                                      },
+                                      "stamp": 147
                                     }
                                   },
                                   "stamp": 8
@@ -1176,7 +1244,10 @@
                                         "action": "none",
                                         "url": "",
                                         "version": 0,
-                                        "style": 1
+                                        "style": 5,
+                                        "textStyle": "default",
+                                        "urlImageOverlay": "",
+                                        "awesomeClasses": "fa fa-cogs"
                                       },
                                       "stamp": 47
                                     }
@@ -1262,6 +1333,6 @@
       "data": []
     }
   },
-  "stamps": 145,
+  "stamps": 148,
   "data": []
 }

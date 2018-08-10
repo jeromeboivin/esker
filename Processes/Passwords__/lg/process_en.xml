@@ -58,6 +58,10 @@
 			<val>Length</val>
 		</TranslateItem>
 		<TranslateItem>
+			<key>_Master password</key>
+			<val>Master key</val>
+		</TranslateItem>
+		<TranslateItem>
 			<key>_Notes</key>
 			<val>Notes</val>
 		</TranslateItem>
