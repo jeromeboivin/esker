@@ -62,47 +62,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 var fakePassword = "************";
 var masterPassword = "UPT59Lhsar$hS7hT9N3E4r@UC_85Y95gZCE&h*F!";
 var masterPasswordDerivationRounds = 100000;
-
-var sessionStorageAPI = {
-    // This method may not be needed as we go along
-    // the support is becoming better and better day-by-day
-    // http://caniuse.com/#feat=namevalue-storage
- 
-    // better to be safe than sorry or get script errors :|
-    isSupported: function() {
-        return sessionStorage;
-    },
- 
-    setItem: function(key, value) {
-        return sessionStorage.setItem(key, value);
-    },
- 
-    getItem: function(key) {
-        return sessionStorage.getItem(key);
-    },
- 
-    // If do not want to build a wrapper like how I did here but implement 
-    // setObject() and getObject(), you can create prototype methods on  
-    // Storage
- 
-    // Storing Objects in HTML5 localStorage : http://stackoverflow.com/a/3146971/1015046 
- 
-    setObject: function(key, object) {
-        return sessionStorage.setItem(key, JSON.stringify(object));
-    },
- 
-    getObject: function(key) {
-        return JSON.parse(sessionStorage.getItem(key));
-    },
- 
-    removeItem: function(key) {
-        return sessionStorage.removeItem(key);
-    },
- 
-    clearAll: function() {
-        return sessionStorage.clear();
-    }
-};
+var clearPasswordViewTimeout = 30000;
 
 var PasswordGenerator = /** @class */ (function () {
     function PasswordGenerator() {
@@ -257,7 +217,13 @@ Controls.Generate_Button__.OnClick = function()
 	var password = gen.generatePassword(passwordLength, useUppercase, useLowercase, useNumbers, useSymbols);
 	
 	Controls.ClearPassword__.SetValue(Array(parseInt(passwordLength) + 1).join("*"));
-	encryptPassword(password);
+	
+	if (Controls.EncryptedNotes__.GetValue())
+	{
+		// Decrypt notes before re-encrypt
+		decryptPassword(Controls.Password__.GetValue(), Controls.EncryptedNotes__.GetValue());
+	}
+	encryptPassword(password, Controls.Notes__.GetValue());
 };
 
 var deriveMasterKey = function(password, rounds)
@@ -275,7 +241,7 @@ var deriveMasterKey = function(password, rounds)
 	return derivedKey;
 };
 
-var encryptPassword = function(password)
+var encryptPassword = function(password, notes)
 {
 	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterPasswordDerivationRounds);
 	
@@ -326,6 +292,15 @@ var encryptPassword = function(password)
 		Controls.Password__.SetValue(encryptedPassword);
 		Controls.Password__.SetReadOnly(true);
 		
+		if (notes)
+		{
+			var notesBytes = sjcl.codec.utf8String.toBits(notes);
+			cipherText = sjcl.mode.gcm.encrypt(aes, notesBytes, ivBytes, additionalData, tagLength);
+			var encryptedNotes = b64EncodeUnicode(cipherText);
+			Controls.EncryptedNotes__.SetValue(encryptedNotes);
+			Controls.Notes__.SetValue("");
+		}
+		
 		Controls.Decrypt_Button__.SetDisabled(false);
 	}
 	catch(ex)
@@ -334,7 +309,7 @@ var encryptPassword = function(password)
 	}
 };
 
-var decryptPassword = function(encryptedPassword)
+var decryptPassword = function(encryptedPassword, encryptedNotes)
 {
 	if (Controls.Encryption_key__.GetValue() == null || 
 		Controls.IV__.GetValue() == null ||
@@ -370,12 +345,22 @@ var decryptPassword = function(encryptedPassword)
 	// Initialize AES-GCM engine from key
 	aes = new sjcl.cipher.aes(keyBytes);
 	var clearPasswordBytes = null;
+	var clearNotesBytes = null;
 	
 	try
 	{
 		clearPasswordBytes = sjcl.mode.gcm.decrypt(aes, cipherText, ivBytes, additionalData, tagLength);
 		
 		var clearPassword = sjcl.codec.utf8String.fromBits(clearPasswordBytes);
+		
+		if (encryptedNotes)
+		{
+			cipherText = b64DecodeUnicode(encryptedNotes);
+			clearNotesBytes = sjcl.mode.gcm.decrypt(aes, cipherText, ivBytes, additionalData, tagLength);
+		
+			var notes = sjcl.codec.utf8String.fromBits(clearNotesBytes);
+			Controls.Notes__.SetValue(notes);
+		}
 		
 		return clearPassword;
 	}
@@ -389,11 +374,20 @@ function updateCopyToClipboardButton(clearPassword, timeout)
 {
 	if (timeout === 0)
 	{
+		Controls.Generate_Button__.SetDisabled(false);
 		Controls.Decrypt_Button__.Hide(false);
 		Controls.ClearPassword__.SetValue(fakePassword);
+		
+		if (Controls.EncryptedNotes__.GetValue())
+		{
+			// Clear plain notes
+			Controls.Notes__.SetValue("");
+		}
 
 		// Make copy to clipboard button disappear
 		Controls.CopyButton__.SetHTML("");
+		
+		Controls.Save.SetDisabled(false);
 	}
 	else
 	{
@@ -413,10 +407,21 @@ function updateCopyToClipboardButton(clearPassword, timeout)
 
 Controls.Decrypt_Button__.OnClick = function()
 {
-	var clearPassword = decryptPassword(Controls.Password__.GetValue());
+	var clearPassword = decryptPassword(Controls.Password__.GetValue(), Controls.EncryptedNotes__.GetValue());
 	Controls.ClearPassword__.SetValue(clearPassword);
 	Controls.Decrypt_Button__.Hide();
-	updateCopyToClipboardButton(clearPassword, 5000);
+	Controls.Generate_Button__.SetDisabled(true);
+	Controls.Save.SetDisabled(true);
+	updateCopyToClipboardButton(clearPassword, clearPasswordViewTimeout);
+};
+
+Controls.Notes__.OnChange = function()
+{
+	var control = this;
+	var currentPassword = decryptPassword(Controls.Password__.GetValue());
+	
+	// Password encryption key must be changed due to AES-GCM limitations
+	encryptPassword(currentPassword, control.GetValue());
 };
 
 Controls.Save.OnClick = function()
@@ -427,18 +432,31 @@ Controls.Save.OnClick = function()
 		Controls.ClearPassword__.SetValue(fakePassword);
 	}
 	
+	if (Controls.EncryptedNotes__.GetValue())
+	{
+		// Clear plain notes
+		Controls.Notes__.SetValue("");
+	}
+	
 	Controls.CopyButton__.SetHTML("");
 };
 
-var onNewManualPassword = function(password)
+var onNewManualPassword = function(password, notes)
 {
-	encryptPassword(password);
+	encryptPassword(password, notes);
 };
 
 Controls.ClearPassword__.OnChange = function()
 {
 	var control = this;
-	onNewManualPassword(control.GetValue());
+	
+	if (Controls.EncryptedNotes__.GetValue())
+	{
+		// Decrypt notes before re-encrypt
+		decryptPassword(Controls.Password__.GetValue(), Controls.EncryptedNotes__.GetValue());
+	}
+
+	onNewManualPassword(control.GetValue(), Controls.Notes__.GetValue());
 };
 
 // Main
@@ -447,6 +465,7 @@ Controls.Encryption_key__.Hide();
 Controls.IV__.Hide();
 Controls.WrappingKeyIV__.Hide();
 Controls.MasterKeyDerivationSalt__.Hide();
+Controls.EncryptedNotes__.Hide();
 
 var newPassword = Controls.Password__.GetValue() == null;
 Controls.Decrypt_Button__.SetDisabled(newPassword);

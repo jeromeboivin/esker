@@ -56,14 +56,15 @@
                             "labelLength": 0,
                             "iconURL": "",
                             "TitleFontSize": "S",
-                            "hideActionButtons": false,
+                            "hideActionButtons": true,
                             "hideTitleBar": false,
                             "hideTitle": false,
                             "backgroundcolor": "default",
                             "labelsAlignment": "right",
                             "label": "_Password entry",
                             "leftImageURL": "",
-                            "removeMargins": false
+                            "removeMargins": false,
+                            "elementsAlignment": "left"
                           },
                           "*": {
                             "FieldsManager": {
@@ -80,8 +81,6 @@
                                   "LabelUrl__": "Url__",
                                   "Expiration__": "LabelExpiration__",
                                   "LabelExpiration__": "Expiration__",
-                                  "Notes__": "LabelNotes__",
-                                  "LabelNotes__": "Notes__",
                                   "LabelDecrypt_Button__": "Decrypt_Button__",
                                   "Decrypt_Button__": "LabelDecrypt_Button__",
                                   "LabelEncryption_key__": "Encryption_key__",
@@ -105,7 +104,7 @@
                                 "Grid": {
                                   "type": "GridLayout",
                                   "options": {
-                                    "lines": 18,
+                                    "lines": 17,
                                     "columns": 2,
                                     "version": 0,
                                     "ctrlsPos": {
@@ -126,11 +125,11 @@
                                         "column": 1
                                       },
                                       "Password__": {
-                                        "line": 12,
+                                        "line": 11,
                                         "column": 2
                                       },
                                       "LabelPassword__": {
-                                        "line": 12,
+                                        "line": 11,
                                         "column": 1
                                       },
                                       "Url__": {
@@ -149,20 +148,12 @@
                                         "line": 7,
                                         "column": 1
                                       },
-                                      "Notes__": {
-                                        "line": 9,
-                                        "column": 2
-                                      },
-                                      "LabelNotes__": {
-                                        "line": 9,
-                                        "column": 1
-                                      },
                                       "LabelDecrypt_Button__": {
-                                        "line": 17,
+                                        "line": 16,
                                         "column": 1
                                       },
                                       "Decrypt_Button__": {
-                                        "line": 17,
+                                        "line": 16,
                                         "column": 2
                                       },
                                       "Spacer_line__": {
@@ -174,19 +165,19 @@
                                         "column": 1
                                       },
                                       "LabelEncryption_key__": {
-                                        "line": 13,
+                                        "line": 12,
                                         "column": 1
                                       },
                                       "Encryption_key__": {
-                                        "line": 13,
+                                        "line": 12,
                                         "column": 2
                                       },
                                       "LabelIV__": {
-                                        "line": 14,
+                                        "line": 13,
                                         "column": 1
                                       },
                                       "IV__": {
-                                        "line": 14,
+                                        "line": 13,
                                         "column": 2
                                       },
                                       "Spacer_line3__": {
@@ -194,7 +185,7 @@
                                         "column": 1
                                       },
                                       "Spacer_line4__": {
-                                        "line": 10,
+                                        "line": 9,
                                         "column": 1
                                       },
                                       "CopyToClipboard__": {
@@ -206,35 +197,35 @@
                                         "column": 1
                                       },
                                       "CopyButton__": {
-                                        "line": 18,
+                                        "line": 17,
                                         "column": 2
                                       },
                                       "LabelCopyButton__": {
-                                        "line": 18,
+                                        "line": 17,
                                         "column": 1
                                       },
                                       "ClearPassword__": {
-                                        "line": 11,
+                                        "line": 10,
                                         "column": 2
                                       },
                                       "LabelClearPassword__": {
-                                        "line": 11,
+                                        "line": 10,
                                         "column": 1
                                       },
                                       "MasterKeyDerivationSalt__": {
-                                        "line": 15,
+                                        "line": 14,
                                         "column": 2
                                       },
                                       "LabelMasterKeyDerivationSalt__": {
-                                        "line": 15,
+                                        "line": 14,
                                         "column": 1
                                       },
                                       "WrappingKeyIV__": {
-                                        "line": 16,
+                                        "line": 15,
                                         "column": 2
                                       },
                                       "LabelWrappingKeyIV__": {
-                                        "line": 16,
+                                        "line": 15,
                                         "column": 1
                                       }
                                     },
@@ -262,7 +253,6 @@
                                           "length": 2
                                         }
                                       ],
-                                      [],
                                       [
                                         {
                                           "index": 0,
@@ -607,41 +597,6 @@
                                       },
                                       "stamp": 25
                                     },
-                                    "LabelNotes__": {
-                                      "type": "Label",
-                                      "data": [
-                                        "Notes__"
-                                      ],
-                                      "options": {
-                                        "label": "_Notes",
-                                        "version": 0
-                                      },
-                                      "stamp": 26
-                                    },
-                                    "Notes__": {
-                                      "type": "LongText",
-                                      "data": [
-                                        "Notes__"
-                                      ],
-                                      "options": {
-                                        "textSize": "S",
-                                        "textAlignment": "left",
-                                        "textStyle": "default",
-                                        "textColor": "default",
-                                        "label": "_Notes",
-                                        "activable": true,
-                                        "width": "500",
-                                        "helpText": "",
-                                        "helpURL": "",
-                                        "helpFormat": "HTML Format",
-                                        "numberOfLines": 15,
-                                        "browsable": false,
-                                        "version": 0,
-                                        "resizable": true,
-                                        "minNbLines": 1
-                                      },
-                                      "stamp": 27
-                                    },
                                     "LabelMasterKeyDerivationSalt__": {
                                       "type": "Label",
                                       "data": [
@@ -681,7 +636,8 @@
                                         "WrappingKeyIV__"
                                       ],
                                       "options": {
-                                        "label": "_WrappingKeyIV"
+                                        "label": "_WrappingKeyIV",
+                                        "version": 0
                                       },
                                       "stamp": 127
                                     },
@@ -768,6 +724,136 @@
                           },
                           "stamp": 6,
                           "data": []
+                        },
+                        "Notes": {
+                          "type": "PanelData",
+                          "data": [],
+                          "options": {
+                            "border": {},
+                            "labelLength": 0,
+                            "iconURL": "",
+                            "TitleFontSize": "S",
+                            "hideActionButtons": true,
+                            "hideTitleBar": false,
+                            "hideTitle": false,
+                            "backgroundcolor": "default",
+                            "labelsAlignment": "right",
+                            "label": "_Notes",
+                            "leftImageURL": "",
+                            "removeMargins": false,
+                            "elementsAlignment": "left",
+                            "version": 0
+                          },
+                          "stamp": 137,
+                          "*": {
+                            "FieldsManager": {
+                              "type": "FieldsManager",
+                              "data": [],
+                              "options": {
+                                "controlsAssociation": {
+                                  "EncryptedNotes__": "LabelEncryptedNotes__",
+                                  "LabelEncryptedNotes__": "EncryptedNotes__"
+                                },
+                                "version": 0
+                              },
+                              "stamp": 138,
+                              "*": {
+                                "Grid": {
+                                  "type": "GridLayout",
+                                  "data": [
+                                    "fields"
+                                  ],
+                                  "options": {
+                                    "ctrlsPos": {
+                                      "Notes__": {
+                                        "line": 1,
+                                        "column": 1
+                                      },
+                                      "EncryptedNotes__": {
+                                        "line": 2,
+                                        "column": 2
+                                      },
+                                      "LabelEncryptedNotes__": {
+                                        "line": 2,
+                                        "column": 1
+                                      }
+                                    },
+                                    "lines": 2,
+                                    "columns": 2,
+                                    "colspans": [
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ],
+                                      []
+                                    ],
+                                    "version": 0
+                                  },
+                                  "stamp": 139,
+                                  "*": {
+                                    "Notes__": {
+                                      "type": "LongText",
+                                      "data": [
+                                        "Notes__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "label": "_Notes",
+                                        "activable": true,
+                                        "width": "100%",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "numberOfLines": 12,
+                                        "browsable": false,
+                                        "version": 0,
+                                        "minNbLines": 12
+                                      },
+                                      "stamp": 27
+                                    },
+                                    "LabelEncryptedNotes__": {
+                                      "type": "Label",
+                                      "data": [
+                                        "EncryptedNotes__"
+                                      ],
+                                      "options": {
+                                        "label": "_EncryptedNotes",
+                                        "version": 0
+                                      },
+                                      "stamp": 144
+                                    },
+                                    "EncryptedNotes__": {
+                                      "type": "ShortText",
+                                      "data": [
+                                        "EncryptedNotes__"
+                                      ],
+                                      "options": {
+                                        "textSize": "S",
+                                        "textAlignment": "left",
+                                        "textStyle": "default",
+                                        "textColor": "default",
+                                        "version": 1,
+                                        "label": "_EncryptedNotes",
+                                        "activable": true,
+                                        "width": "500",
+                                        "helpText": "",
+                                        "helpURL": "",
+                                        "helpFormat": "HTML Format",
+                                        "length": 5000,
+                                        "browsable": false
+                                      },
+                                      "stamp": 145
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     },
@@ -787,7 +873,7 @@
                             "labelLength": 0,
                             "iconURL": "",
                             "TitleFontSize": "S",
-                            "hideActionButtons": false,
+                            "hideActionButtons": true,
                             "hideTitleBar": false,
                             "hideTitle": false,
                             "backgroundcolor": "default",
@@ -795,7 +881,8 @@
                             "label": "_Password generator",
                             "leftImageURL": "",
                             "removeMargins": false,
-                            "version": 0
+                            "version": 0,
+                            "elementsAlignment": "left"
                           },
                           "stamp": 32,
                           "*": {
@@ -829,56 +916,68 @@
                                   "options": {
                                     "ctrlsPos": {
                                       "Generate_Button__": {
-                                        "line": 6,
+                                        "line": 7,
                                         "column": 2
                                       },
                                       "LabelGenerate_Button__": {
-                                        "line": 6,
+                                        "line": 7,
                                         "column": 1
                                       },
                                       "Uppercase_Required__": {
-                                        "line": 1,
+                                        "line": 2,
                                         "column": 2
                                       },
                                       "LabelUppercase_Required__": {
-                                        "line": 1,
+                                        "line": 2,
                                         "column": 1
                                       },
                                       "Lowercase_Required__": {
-                                        "line": 2,
+                                        "line": 3,
                                         "column": 2
                                       },
                                       "LabelLowercase_Required__": {
-                                        "line": 2,
+                                        "line": 3,
                                         "column": 1
                                       },
                                       "Numbers_Required__": {
-                                        "line": 3,
+                                        "line": 4,
                                         "column": 2
                                       },
                                       "LabelNumbers_Required__": {
-                                        "line": 3,
+                                        "line": 4,
                                         "column": 1
                                       },
                                       "Special_Chars_Required__": {
-                                        "line": 4,
+                                        "line": 5,
                                         "column": 2
                                       },
                                       "LabelSpecial_Chars_Required__": {
-                                        "line": 4,
+                                        "line": 5,
                                         "column": 1
                                       },
                                       "Required_Length__": {
-                                        "line": 5,
+                                        "line": 6,
                                         "column": 2
                                       },
                                       "LabelRequired_Length__": {
-                                        "line": 5,
+                                        "line": 6,
+                                        "column": 1
+                                      },
+                                      "Spacer_line5__": {
+                                        "line": 1,
                                         "column": 1
                                       }
                                     },
-                                    "lines": 6,
+                                    "lines": 7,
                                     "colspans": [
+                                      [
+                                        [
+                                          {
+                                            "index": 0,
+                                            "length": 2
+                                          }
+                                        ]
+                                      ],
                                       [],
                                       [],
                                       [],
@@ -890,6 +989,18 @@
                                   },
                                   "stamp": 35,
                                   "*": {
+                                    "Spacer_line5__": {
+                                      "type": "Spacer",
+                                      "data": false,
+                                      "options": {
+                                        "height": "",
+                                        "width": "",
+                                        "color": "default",
+                                        "label": "Spacer line5",
+                                        "version": 0
+                                      },
+                                      "stamp": 143
+                                    },
                                     "LabelUppercase_Required__": {
                                       "type": "Label",
                                       "data": [
@@ -1103,7 +1214,17 @@
                 "action": "savequit",
                 "submit": true,
                 "version": 0,
-                "shortCut": "S"
+                "shortCut": "S",
+                "textPosition": "text-right",
+                "textSize": "MS",
+                "textStyle": "default",
+                "textColor": "color1",
+                "nextprocess": {
+                  "processName": "",
+                  "attachmentsMode": "all",
+                  "willBeChild": true,
+                  "returnToOriginalUrl": false
+                }
               },
               "stamp": 11,
               "data": []
@@ -1141,6 +1262,6 @@
       "data": []
     }
   },
-  "stamps": 128,
+  "stamps": 145,
   "data": []
 }
