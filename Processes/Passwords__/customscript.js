@@ -61,6 +61,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 
 var fakePassword = "************";
 var masterPassword = null;
+var masterKeyFile = null;
 var masterPasswordDerivationRounds = 100000;
 var clearPasswordViewTimeout = 15000;
 var ctrlClickedWhenNoMasterPassword = null;
@@ -200,17 +201,22 @@ var PasswordGenerator = /** @class */ (function () {
 function fillMasterPasswordDialog_CB(dialog, tabId, event, control)
 {
 	var title_control = dialog.AddHTML("masterPassword");
-    title_control.SetHTML("<table border=\"0\" cellpadding=\"0\" class=\"GridTable\" cellspacing=\"0\"><tbody>" +
-						  "<tr><td class=\"firstColBody\"><div class=\"Label\" style=\"text-align: right;\"><span class=\"text\">" + Language.Translate("_Master password") + "</span></div></td>" + 
-						  "<td class=\"secondColBody\"><input type=\"password\" onchange=\"sessionStorage.setItem('masterPassword', this.value)\" autofocus></td></tr>" + 
-						  "</tbody></table>");
+    title_control.SetHTML(
+		"<table border=\"0\" cellpadding=\"0\" class=\"GridTable\" cellspacing=\"0\"><tbody>" +
+		"<tr><td class=\"firstColBody\"><div class=\"Label\" style=\"text-align: right;\"><span class=\"text\">" + Language.Translate("_Master password") + "</span></div></td>" + 
+		"<td class=\"secondColBody\"><input type=\"password\" onchange=\"sessionStorage.setItem('masterPassword', this.value)\" autofocus></td></tr>" + 
+		"<tr><td class=\"firstColBody\"><div class=\"Label\" style=\"text-align: right;\"><span class=\"text\">" + Language.Translate("_Master key file") + "</span></div></td>" + 
+		"<td class=\"secondColBody\"><input type=\"file\" onchange=\"loadFile(this.files[0])\"></td></tr>" + 
+		"</tbody></table>"
+	);
 
 }
 
 function commitMasterPasswordDialog_CB(dialog, tabId, event, control)
 {
 	masterPassword = sessionStorage['masterPassword'];
-	Controls.ForgetMasterPasswordButton__.Hide(!masterPassword);
+	masterKeyFile = sessionStorage['masterKeyFile'];
+	Controls.ForgetMasterPasswordButton__.Hide(!masterPassword && !masterKeyFile);
 	
 	if (masterPassword && ctrlClickedWhenNoMasterPassword)
 	{
@@ -269,7 +275,7 @@ Controls.Generate_Button__.OnClick = function()
 	}
 };
 
-var deriveMasterKey = function(password, rounds)
+var deriveMasterKey = function(password, keyFile, rounds)
 {
 	var wrappingKeySalt = Controls.MasterKeyDerivationSalt__.GetValue();
 	
@@ -280,19 +286,27 @@ var deriveMasterKey = function(password, rounds)
 		Controls.MasterKeyDerivationSalt__.SetValue(wrappingKeySalt);
 	}
 	
-	var derivedKey = sjcl.misc.pbkdf2(password, wrappingKeySalt, rounds, 256);
+	var keyFileDigest = "";
+	
+	if (keyFile)
+	{
+		var keyFileBitArray = sjcl.hash.sha256.hash(sjcl.codec.hex.toBits(keyFile));
+		keyFileDigest = sjcl.codec.hex.fromBits(keyFileBitArray);
+	}
+	
+	var derivedKey = sjcl.misc.pbkdf2(keyFileDigest + password, wrappingKeySalt, rounds, 256);
 	return derivedKey;
 };
 
 var encryptPassword = function(password, notes)
 {
-	if (!masterPassword)
+	if (!masterPassword && !masterKeyFile)
 	{
 		askMasterPassword();
 		return null;
 	}
 	
-	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterPasswordDerivationRounds);
+	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterKeyFile, masterPasswordDerivationRounds);
 	
 	// Generate new encryption key + initialization vector
 	var keyBytes = new Uint32Array(256 / 32);
@@ -371,13 +385,13 @@ var decryptPassword = function(encryptedPassword, encryptedNotes)
 		return null;
 	}
 	
-	if (!masterPassword)
+	if (!masterPassword && !masterKeyFile)
 	{
 		askMasterPassword();
 		return null;
 	}
 	
-	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterPasswordDerivationRounds);
+	var wrappingKeyBytes = deriveMasterKey(masterPassword, masterKeyFile, masterPasswordDerivationRounds);
 	
 	var wrappingKeyIVBytes = new Uint32Array(b64DecodeUnicode(Controls.WrappingKeyIV__.GetValue()));
 	var encryptedKeyBytes = b64DecodeUnicode(Controls.Encryption_key__.GetValue());
@@ -540,7 +554,9 @@ Controls.ForgetMasterPasswordButton__.OnClick = function()
 {
 	var control = this;
 	masterPassword = null;
+	masterKeyFile = null;
 	sessionStorage.removeItem("masterPassword");
+	sessionStorage.removeItem("masterKeyFile");
 	control.Hide();
 };
 
@@ -561,4 +577,5 @@ if (!newPassword)
 }
 
 masterPassword = sessionStorage['masterPassword'];
-Controls.ForgetMasterPasswordButton__.Hide(!masterPassword);
+masterKeyFile = sessionStorage['masterKeyFile'];
+Controls.ForgetMasterPasswordButton__.Hide(!masterPassword && !masterKeyFile);

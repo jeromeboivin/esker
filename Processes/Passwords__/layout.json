@@ -106,7 +106,7 @@
                                 "Grid": {
                                   "type": "GridLayout",
                                   "options": {
-                                    "lines": 19,
+                                    "lines": 20,
                                     "columns": 2,
                                     "version": 0,
                                     "ctrlsPos": {
@@ -241,6 +241,10 @@
                                       "Spacer_line6__": {
                                         "line": 18,
                                         "column": 1
+                                      },
+                                      "loadFileHTML__": {
+                                        "line": 20,
+                                        "column": 1
                                       }
                                     },
                                     "colspans": [
@@ -287,7 +291,13 @@
                                           "length": 2
                                         }
                                       ],
-                                      []
+                                      [],
+                                      [
+                                        {
+                                          "index": 0,
+                                          "length": 2
+                                        }
+                                      ]
                                     ]
                                   },
                                   "data": [
@@ -781,6 +791,17 @@
                                         "version": 0
                                       },
                                       "stamp": 147
+                                    },
+                                    "loadFileHTML__": {
+                                      "type": "HTML",
+                                      "data": false,
+                                      "options": {
+                                        "label": "",
+                                        "htmlContent": "<SCRIPT> \nfunction buf2hex(buffer) { \n  return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join(''); \n};\nfunction loadFile(file) {\n   var fr = new FileReader();\n   function storeFile() { \n\t   sessionStorage.setItem('masterKeyFile', buf2hex(fr.result)); \n   };\n   fr.onload = storeFile;\n   fr.readAsArrayBuffer(file);\n};\n</SCRIPT>",
+                                        "version": 0,
+                                        "width": "100%"
+                                      },
+                                      "stamp": 150
                                     }
                                   },
                                   "stamp": 8
@@ -1333,6 +1354,6 @@
       "data": []
     }
   },
-  "stamps": 148,
+  "stamps": 150,
   "data": []
 }

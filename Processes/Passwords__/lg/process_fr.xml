@@ -46,6 +46,10 @@
 			<val>Expiration</val>
 		</TranslateItem>
 		<TranslateItem>
+			<key>_Forget master password</key>
+			<val>Oublier le mot de passe principal</val>
+		</TranslateItem>
+		<TranslateItem>
 			<key>_Generate</key>
 			<val>Générer</val>
 		</TranslateItem>
@@ -56,6 +60,10 @@
 		<TranslateItem>
 			<key>_Length</key>
 			<val>Longueur</val>
+		</TranslateItem>
+		<TranslateItem>
+			<key>_Master key file</key>
+			<val>Fichier-clé</val>
 		</TranslateItem>
 		<TranslateItem>
 			<key>_Master password</key>
