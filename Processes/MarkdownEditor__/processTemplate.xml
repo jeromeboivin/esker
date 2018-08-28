@@ -1,0 +1,117 @@
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-28 10:06:30" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="MarkdownEditor" needvalidation="1" ootofilter="" ootoversion="1" originalProcessID="PHQG17598B0" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomData" upgradable="0" userid="" version="51" visibility="0">
+	<properties>
+		<gdr>
+			<FinalizationScriptAllowRetry />
+			<ValidationScriptAllowRetry />
+			<AllowTagCoverPages>true</AllowTagCoverPages>
+			<AllowTagNewDocuments>true</AllowTagNewDocuments>
+			<AllowTagAttachments>true</AllowTagAttachments>
+			<ExtractionScriptAllowRetry />
+			<ExtractionScriptRunOnOCRFailed />
+			<AllowRemovePages>true</AllowRemovePages>
+			<AllowSwapPages>true</AllowSwapPages>
+			<PostProcessingScriptAllowRetry />
+		</gdr>
+		<ocr>
+			<trade-off>accurate</trade-off>
+			<image-binarization>no</image-binarization>
+			<image-draft-fax>no</image-draft-fax>
+			<image-despeckle>no</image-despeckle>
+			<allowed-language>0</allowed-language>
+			<image-resolution-enhancement>auto</image-resolution-enhancement>
+			<pdf-processing>no-ocr</pdf-processing>
+			<ocr_engine>Nuance190</ocr_engine>
+			<ocrpagestoprocess />
+			<extractionAdditionalOptions />
+		</ocr>
+		<process>
+			<flowtype>processing</flowtype>
+			<ocrpreset>scan</ocrpreset>
+			<homepagelabel>Markdown Editor</homepagelabel>
+			<enableflexibleauditing />
+			<enableflexibleediting />
+			<enableflexibleteaching />
+			<disableocr />
+			<instanciable>1</instanciable>
+			<disableautolearning>true</disableautolearning>
+			<backgroundprocessingthreshold />
+			<EnablePreviewPrecomputation />
+			<enablerounddecimal>true</enablerounddecimal>
+			<pdfNormalizeFilter />
+			<archiveDuration>0</archiveDuration>
+			<ocrpagestoprocess>0</ocrpagestoprocess>
+			<UseActionNameWithScriptApproval>true</UseActionNameWithScriptApproval>
+			<displayWidth />
+			<AllowUploadAttachment>1</AllowUploadAttachment>
+			<AllowUploadReferenceDocument>1</AllowUploadReferenceDocument>
+			<UseCultureFormat>true</UseCultureFormat>
+			<AllowRetryExtractCD>true</AllowRetryExtractCD>
+			<TransportName>CustomData</TransportName>
+			<LayoutVersion>1.0</LayoutVersion>
+			<printToProcess />
+		</process>
+		<ui>
+			<CustomScriptDebug>false</CustomScriptDebug>
+			<CustomScriptReadonly>false</CustomScriptReadonly>
+			<CustomScript>
+				<!--customscript.js--></CustomScript>
+			<layout>
+				<!--layout.json--></layout>
+		</ui>
+		<lg />
+	</properties>
+	<type id="NoID" name="CD" />
+	<field deleted="0" format="" guid="QGOO17598B1" id="NoID" label="Markdown" length="32766" name="Markdown__" originalProcessID="PHQG17598B0" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Markdown__</fullname>
+				<defaultvalue />
+			</db>
+			<extraction />
+			<extrainfo>
+				<Label>Markdown</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="KFNQ17598C8" id="NoID" label="Title" length="50" name="Title__" originalProcessID="PHQG17598B0" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Title__</fullname>
+				<defaultvalue />
+			</db>
+			<extraction />
+			<extrainfo>
+				<Label>Title</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+</process>
