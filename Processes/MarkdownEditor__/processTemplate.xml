@@ -1,4 +1,4 @@
-﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-28 14:41:23" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="MarkdownEditor" needvalidation="1" ootofilter="" ootoversion="1" originalProcessID="PHQG17598B0" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomData" upgradable="0" userid="" version="36" visibility="0">
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-28 14:41:23" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="MarkdownEditor" needvalidation="1" ootofilter="" ootoversion="1" originalProcessID="PHQG17598B0" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomData" upgradable="0" userid="" version="52" visibility="0">
 	<properties>
 		<gdr>
 			<FinalizationScriptAllowRetry />
