@@ -1,7 +1,7 @@
-Controls.Markdown__.OnChange = function()
+Controls.Save.OnClick = function()
 {
-	var control = this;
-	var markownPreview = control.GetValue();
+	Controls.Markdown__.SetValue(sessionStorage["markdownPreview"] ? sessionStorage["markdownPreview"] : "");
+	var markownPreview = Controls.Markdown__.GetValue();
 	var firstLine = markownPreview.split('\n')[0];
 	
 	if (firstLine)
@@ -13,12 +13,17 @@ Controls.Markdown__.OnChange = function()
 		Controls.Title__.SetValue(firstLine.trim());
 	}
 	
-	sessionStorage["markownPreview"] = markownPreview;
+	sessionStorage.removeItem("markdownPreview");
 };
 
+Controls.Close.OnClick = function()
+{
+	sessionStorage.removeItem("markdownPreview");
+};
+	
 // Load initial content
-sessionStorage["markownPreview"] = "";
-sessionStorage["markownPreview"] = Controls.Markdown__.GetText();
+sessionStorage["markdownPreview"] = "";
+sessionStorage["markdownPreview"]  = Controls.Markdown__.GetText();
 
 if (!Controls.Markdown__.GetText())
 {
@@ -26,5 +31,8 @@ if (!Controls.Markdown__.GetText())
 	var firstLine = "Untitled - " + today.toLocaleString();
 	Controls.Title__.SetValue(firstLine);
 	Controls.Markdown__.SetText("# " + firstLine);
-	sessionStorage["markownPreview"] = Controls.Markdown__.GetText();
+	sessionStorage["markdownPreview"] = Controls.Markdown__.GetText();
 }
+
+Controls.Title__.Hide();
+Controls.Markdown__.Hide();
