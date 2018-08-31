@@ -279,7 +279,9 @@
                                       "Title__": "LabelTitle__",
                                       "LabelTitle__": "Title__",
                                       "Markdown__": "LabelMarkdown__",
-                                      "LabelMarkdown__": "Markdown__"
+                                      "LabelMarkdown__": "Markdown__",
+                                      "PrintButton__": "LabelPrintButton__",
+                                      "LabelPrintButton__": "PrintButton__"
                                     },
                                     "version": 0
                                   },
@@ -293,7 +295,7 @@
                                       "options": {
                                         "ctrlsPos": {
                                           "Markdown__": {
-                                            "line": 3,
+                                            "line": 4,
                                             "column": 2
                                           },
                                           "Title__": {
@@ -305,16 +307,35 @@
                                             "column": 1
                                           },
                                           "SimpleMDE__": {
-                                            "line": 2,
+                                            "line": 3,
                                             "column": 1
                                           },
                                           "LabelMarkdown__": {
-                                            "line": 3,
+                                            "line": 4,
+                                            "column": 1
+                                          },
+                                          "LabelConversation": {
+                                            "line": 5,
+                                            "column": 1
+                                          },
+                                          "Conversation__": {
+                                            "line": 5,
+                                            "column": 2
+                                          },
+                                          "PrintButton__": {
+                                            "line": 2,
+                                            "column": 2
+                                          },
+                                          "LabelPrintButton__": {
+                                            "line": 2,
                                             "column": 1
                                           }
                                         },
-                                        "lines": 3,
+                                        "lines": 5,
                                         "colspans": [
+                                          [
+                                            []
+                                          ],
                                           [
                                             []
                                           ],
@@ -324,6 +345,7 @@
                                               "length": 2
                                             }
                                           ],
+                                          [],
                                           []
                                         ],
                                         "version": 0
@@ -362,6 +384,38 @@
                                             "length": 1000
                                           },
                                           "stamp": 72
+                                        },
+                                        "LabelPrintButton__": {
+                                          "type": "Label",
+                                          "data": false,
+                                          "options": {
+                                            "label": ""
+                                          },
+                                          "stamp": 80
+                                        },
+                                        "PrintButton__": {
+                                          "type": "FormButton",
+                                          "data": false,
+                                          "options": {
+                                            "buttonLabel": "Printable view",
+                                            "label": "",
+                                            "textPosition": "text-right",
+                                            "textSize": "MS",
+                                            "textStyle": "default",
+                                            "textColor": "color1",
+                                            "nextprocess": {
+                                              "processName": "BrowseCD",
+                                              "attachmentsMode": "all",
+                                              "willBeChild": true,
+                                              "returnToOriginalUrl": false
+                                            },
+                                            "urlImageOverlay": "",
+                                            "awesomeClasses": "fa fa-print",
+                                            "style": 5,
+                                            "action": "none",
+                                            "url": ""
+                                          },
+                                          "stamp": 81
                                         },
                                         "SimpleMDE__": {
                                           "type": "HTML",
@@ -405,6 +459,25 @@
                                             "version": 0
                                           },
                                           "stamp": 75
+                                        },
+                                        "LabelConversation": {
+                                          "type": "Label",
+                                          "data": false,
+                                          "options": {
+                                            "label": "Conversation",
+                                            "version": 0
+                                          },
+                                          "stamp": 76
+                                        },
+                                        "Conversation__": {
+                                          "type": "ConversationUI",
+                                          "data": false,
+                                          "options": {
+                                            "label": "Conversation",
+                                            "tableName": "Conversation__",
+                                            "version": 0
+                                          },
+                                          "stamp": 77
                                         }
                                       }
                                     }
@@ -608,6 +681,6 @@
       "data": []
     }
   },
-  "stamps": 75,
+  "stamps": 81,
   "data": []
 }
