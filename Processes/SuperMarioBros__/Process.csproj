@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+ 	<!--  gci -Recurse -Filter "processtemplate.xml" | % { Copy-Item Process.csproj -Destination $_.DirectoryName -Force }  -->
+	<PropertyGroup>
+		<processName>$([System.IO.Path]::GetFileName($(MSBuildProjectDirectory)))</processName>
+		<InputFoldersRoot>D:\Dev\EOD\Delivery\Packages</InputFoldersRoot>
+		<UpdatePackageData>$(InputFoldersRoot)\bin\Processes\Personal</UpdatePackageData>
+		<OutputZip>$(UpdatePackageData)\$(processName).zip</OutputZip>
+	</PropertyGroup>
+  
+	<Import Project="$(InputFoldersRoot)\Esker.Processes.targets"/>
+
+	<ItemGroup Label="Items for all packages">
+		<InputFile Include="$(ProcessBuildBinary)">
+			<FileType>binary_file</FileType>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\extractionscript.js" Condition="!Exists('$(GeneratedInputFolder)\extractionscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(GeneratedInputFolder)\extractionscript.js" Condition="Exists('$(GeneratedInputFolder)\extractionscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\validationscript.js" Condition="!Exists('$(GeneratedInputFolder)\validationscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(GeneratedInputFolder)\validationscript.js" Condition="Exists('$(GeneratedInputFolder)\validationscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\finalizationscript.js" Condition="!Exists('$(GeneratedInputFolder)\finalizationscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(GeneratedInputFolder)\finalizationscript.js" Condition="Exists('$(GeneratedInputFolder)\finalizationscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\postprocessingscript.js" Condition="!Exists('$(GeneratedInputFolder)\postprocessingscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(GeneratedInputFolder)\postprocessingscript.js" Condition="Exists('$(GeneratedInputFolder)\postprocessingscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\customscript.js" Condition="!Exists('$(GeneratedInputFolder)\customscript.js')">
+			<FileType>client_script</FileType>
+			<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(GeneratedInputFolder)\customscript.js" Condition="Exists('$(GeneratedInputFolder)\customscript.js')">
+			<FileType>server_script</FileType>
+			<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\layout.js*">
+			<FileType>layout_script</FileType>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\lg\process_*.xml">
+			<FileType>language_file</FileType>
+		</InputFile>
+		<InputFile Include="$(InputFolder)\processTemplate.xml">
+			<FileType>template_file</FileType>
+		</InputFile>
+		<OutputFile Include="$(OutputZip)">
+			<InputFolder>$(InputFolder)</InputFolder>
+		</OutputFile>
+	</ItemGroup>
+</Project>
