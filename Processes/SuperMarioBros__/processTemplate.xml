@@ -1,20 +1,27 @@
-﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2018-08-10 14:02:19" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="SuperMarioBros__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="UORIG0000FSX" ownerid="" ownerpb="" public="1" pushnotification="0" transportname="CustomTable" upgradable="0" userid="" version="5" visibility="0">
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2020-11-19 12:47:59" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsonly="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="SuperMarioBros__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="UORIG0000FSX" ownerid="" ownerpb="" public="1" pushnotification="0" reuseengine="0" transportname="CustomTable" upgradable="0" userid="" version="8" visibility="0">
 	<properties>
 		<gdr />
 		<process>
 			<flowtype>processing</flowtype>
 			<homepagelabel>Super Mario Bros.</homepagelabel>
 			<instanciable>1</instanciable>
+			<isTableReadOnly>false</isTableReadOnly>
 			<enablerounddecimal>true</enablerounddecimal>
 			<OverrideAllowedAttachmentExtensions>*</OverrideAllowedAttachmentExtensions>
 			<UseActionNameWithScriptApproval>true</UseActionNameWithScriptApproval>
 			<AllowUploadAttachment>0</AllowUploadAttachment>
 			<AllowUploadReferenceDocument>0</AllowUploadReferenceDocument>
+			<shouldRollbackManualRecordEdits>true</shouldRollbackManualRecordEdits>
+			<shouldShowManualEditsWarning>false</shouldShowManualEditsWarning>
 			<UseCultureFormat>true</UseCultureFormat>
 			<TransportName>CustomTable</TransportName>
 			<LayoutVersion>1.0</LayoutVersion>
 		</process>
 		<ui>
+			<CustomScriptDebug>false</CustomScriptDebug>
+			<CustomScriptReadonly>false</CustomScriptReadonly>
+			<CustomScript>
+				<!--customscript.js--></CustomScript>
 			<layout>
 				<!--layout.json--></layout>
 		</ui>
