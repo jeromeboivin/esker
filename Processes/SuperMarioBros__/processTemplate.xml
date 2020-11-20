@@ -1,9 +1,9 @@
-﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2020-11-19 12:47:59" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsonly="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="SuperMarioBros__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="UORIG0000FSX" ownerid="" ownerpb="" public="1" pushnotification="0" reuseengine="0" transportname="CustomTable" upgradable="0" userid="" version="8" visibility="0">
+﻿<process accountid="" builtin="0" builtinversion="0" carriesapplicationversion="0" creationdatetime="2020-11-19 12:47:59" deleted="0" eskerapplication="" global="0" id="NoID" keepcustomization="0" keepfieldsonly="0" keepfieldsproperties="0" keepnewcontroloptions="0" migrationversion="4" name="NES_Emu__" needvalidation="0" ootofilter="" ootoversion="1" originalProcessID="UORIG0000FSX" ownerid="" ownerpb="" public="1" pushnotification="0" reuseengine="0" transportname="CustomTable" upgradable="0" userid="" version="38" visibility="0">
 	<properties>
 		<gdr />
 		<process>
 			<flowtype>processing</flowtype>
-			<homepagelabel>Super Mario Bros.</homepagelabel>
+			<homepagelabel>NES Emulator</homepagelabel>
 			<instanciable>1</instanciable>
 			<isTableReadOnly>false</isTableReadOnly>
 			<enablerounddecimal>true</enablerounddecimal>
@@ -28,4 +28,56 @@
 		<lg />
 	</properties>
 	<type id="NoID" name="CT" />
+	<field deleted="0" format="" guid="RXZKG0000M4H" id="NoID" label="Game name" length="400" name="Game_name__" originalProcessID="UORIG0000FSX" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Game_name__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>Game name</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format","helpIconPosition":"Right"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
+	<field deleted="0" format="" guid="SXZKG0000M4H" id="NoID" label="Rom" length="2000000" name="Rom__" originalProcessID="UORIG0000FSX" precision="0" processid="" submitable="1" type="STR">
+		<properties>
+			<db>
+				<alias />
+				<noxml>1</noxml>
+				<fullname>/job/processfields/Rom__</fullname>
+				<defaultvalue />
+			</db>
+			<extrainfo>
+				<Label>Rom</Label>
+				<Alias />
+				<ProcessFieldVersion vartype="INT">1</ProcessFieldVersion>
+			</extrainfo>
+			<gdr>
+				<VarType>Area</VarType>
+				<DisableAutolearn>1</DisableAutolearn>
+			</gdr>
+			<help>
+				<helpData>{"helpText":"","helpURL":"","helpFormat":"HTML Format","helpIconPosition":"Right"}</helpData>
+			</help>
+			<ui>
+				<_type>String</_type>
+				<automatic>true</automatic>
+			</ui>
+		</properties>
+	</field>
 </process>
