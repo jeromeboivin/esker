@@ -2,14 +2,14 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup Label="Application process definition" >
 		<InputFoldersRoot>D:\Dev\EOD\Delivery\Packages</InputFoldersRoot>
-		<ApplicationName>SuperMarioBros</ApplicationName>
+		<ApplicationName>NES Emulator</ApplicationName>
 		<ApplicationFolder>$(MSBuildThisFileDirectory)</ApplicationFolder>
 	</PropertyGroup>
 
 	<Import Project="$(InputFoldersRoot)\Esker.Applications.targets" />
 
-	<ItemGroup Label="Processes for SuperMarioBros">
-		<EmbeddedProcessProj Include="$(ApplicationFolder)\SuperMarioBros__\Process.csproj" />
+	<ItemGroup Label="Processes for NES Emulator">
+		<EmbeddedProcessProj Include="$(ApplicationFolder)\NES_Emu__\Process.csproj" />
 	</ItemGroup>
 
 	<Target Name="Build" Label="FullWorkflowSample target for build" DependsOnTargets="ApplicationBuild">
